@@ -12,4 +12,5 @@ box = soup.find("article", class_="main-article")
 title = box.find("h1").get_text()
 transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
 
-with
+with open("titanic.txt", "w") as file:
+    file.write(transcript)
