@@ -14,7 +14,7 @@ soup = bs(content, "lxml")
 box = soup.find("article", class_="main-article")
 links = []
 for link in box.find_all("a", href=True):
-    time.sleep(1)
+    time.sleep(0.5)
     links.append(link["href"])
 
 print(links)
