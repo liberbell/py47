@@ -2,8 +2,9 @@ from bs4 import BeautifulSoup as bs
 import requests
 import time
 
+root = "https://subslikescript.com"
 website = "https://subslikescript.com/movie/Titanic-120338"
-website2 = "https://subslikescript.com/movies"
+website2 = f"{root}/movies"
 
 result = requests.get(website2)
 content = result.text
