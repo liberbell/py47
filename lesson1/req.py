@@ -20,14 +20,15 @@ for link in box.find_all("a", href=True):
 # print(links)
 
 for link in links:
-    movie = f"{root}/{link}"
-    result = requests.get(movie)
-    content = result.text
+    website = f"{root}/{link}"
+    print(website)
+#     result = requests.get(website)
+#     content = result.text
 
-    box = soup.find("article", class_="main-article")
+#     box = soup.find("article", class_="main-article")
 
-    title = box.find("h1").get_text()
-    transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
+#     title = box.find("h1").get_text()
+#     transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
 
-    with open("titanic.txt", "w") as file:
-        file.write(transcript)
+#     with open(f"{title}.txt", "w") as file:
+#         file.write(transcript)
