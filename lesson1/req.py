@@ -21,9 +21,10 @@ for link in box.find_all("a", href=True):
 
 for link in links:
     website = f"{root}/{link}"
-    print(website)
-#     result = requests.get(website)
-#     content = result.text
+    # print(website)
+    result = requests.get(website)
+    content = result.text
+    print(content)
 
 #     box = soup.find("article", class_="main-article")
 
