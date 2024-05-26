@@ -27,6 +27,8 @@ for link in links:
     soup = bs(content, "lxml")
     # print(content)
 
+    pagination = soup.find("ul", class_="pagination")
+
     box = soup.find("article", class_="main-article")
     print(box)
 
