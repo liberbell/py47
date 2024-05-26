@@ -24,12 +24,14 @@ for link in links:
     # print(website)
     result = requests.get(website)
     content = result.text
-    print(content)
+    soup = bs(content, "lxml")
+    # print(content)
 
-#     box = soup.find("article", class_="main-article")
+    box = soup.find("article", class_="main-article")
+    print(box)
 
-#     title = box.find("h1").get_text()
-#     transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
+    title = box.find("h1").get_text()
+    transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
 
-#     with open(f"{title}.txt", "w") as file:
-#         file.write(transcript)
+    with open(f"{title}.txt", "w") as file:
+        file.write(transcript)
