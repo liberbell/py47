@@ -28,6 +28,7 @@ for link in links:
     # print(content)
 
     pagination = soup.find("ul", class_="pagination")
+    pagination.find_all("li", class_="page-item")
 
     box = soup.find("article", class_="main-article")
     print(box)
