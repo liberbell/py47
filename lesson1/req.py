@@ -4,7 +4,7 @@ import time
 
 root = "https://subslikescript.com"
 website = "https://subslikescript.com/movie/Titanic-120338"
-website2 = f"{root}/movies"
+website2 = f"{root}/movies_letter-A"
 
 result = requests.get(website2)
 content = result.text
@@ -32,6 +32,10 @@ for link in links:
     last_page = pages[-2].text
 
     for page in range(i, int(last_page) + 1):
+        website2 = f"{root}/movies_letter-A?page={page}"
+        result = requests.get(website2)
+        content = result.text
+        soup = bs(content, "lxml")
 
     box = soup.find("article", class_="main-article")
     print(box)
