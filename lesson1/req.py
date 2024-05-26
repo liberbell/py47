@@ -28,7 +28,10 @@ for link in links:
     # print(content)
 
     pagination = soup.find("ul", class_="pagination")
-    pagination.find_all("li", class_="page-item")
+    pages = pagination.find_all("li", class_="page-item")
+    last_page = pages[-2].text
+
+    for page in range(i, int(last_page) + 1):
 
     box = soup.find("article", class_="main-article")
     print(box)
