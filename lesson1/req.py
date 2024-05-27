@@ -31,8 +31,10 @@ pagination = soup.find("ul", class_="pagination")
 pages = pagination.find_all("li", class_="page-item")
 last_page = pages[-2].text
 
+links = []
 for page in range(1, int(last_page) + 1)[:2]:
-        website3 = f"{root}/movies_letter-A?page={page}"
+        # website3 = f"{root}?page={page}"
+        website3 = f"{website2}/movies_letter-A?page={page}"
         result = requests.get(website3)
         content = result.text
         soup = bs(content, "lxml")
@@ -42,7 +44,6 @@ for page in range(1, int(last_page) + 1)[:2]:
         title = box.find("h1").get_text()
         transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
 
-        links = []
         for link in box.find_all("a", href=True):
             links.append(link["href"])
 
