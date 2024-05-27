@@ -34,8 +34,8 @@ last_page = pages[-2].text
 links = []
 for page in range(1, int(last_page) + 1)[:2]:
         # website3 = f"{root}?page={page}"
-        website3 = f"{website2}/movies_letter-A?page={page}"
-        result = requests.get(website3)
+        # website3 = f"{website2}/movies_letter-A?page={page}"
+        result = requests.get(f"{root}?page={page}")
         content = result.text
         soup = bs(content, "lxml")
 
@@ -46,6 +46,10 @@ for page in range(1, int(last_page) + 1)[:2]:
 
         for link in box.find_all("a", href=True):
             links.append(link["href"])
+
+        for link in links:
+            try:
+                print(link)
 
 
     with open(f"{title}.txt", "w") as file:
