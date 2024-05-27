@@ -32,15 +32,18 @@ pages = pagination.find_all("li", class_="page-item")
 last_page = pages[-2].text
 
 for page in range(1, int(last_page) + 1):
-    website3 = f"{root}/movies_letter-A?page={page}"
-    result = requests.get(website3)
-    content = result.text
-    soup = bs(content, "lxml")
+    try:
+        website3 = f"{root}/movies_letter-A?page={page}"
+        result = requests.get(website3)
+        content = result.text
+        soup = bs(content, "lxml")
 
-    box = soup.find("article", class_="main-article")
+        box = soup.find("article", class_="main-article")
 
-    title = box.find("h1").get_text()
-    transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
+        title = box.find("h1").get_text()
+        transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
+    except:
+        print("link is not working.")
 
     with open(f"{title}.txt", "w") as file:
         file.write(transcript)
