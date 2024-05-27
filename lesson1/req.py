@@ -58,9 +58,7 @@ for page in range(1, int(last_page) + 1)[:2]:
                 title = box.find("h1").get_text()
                 transcript = box.find("div", class_="full-script").get_text(strip=True, separator=" ")
 
-
                 with open(f"{title}.txt", "w") as file:
                     file.write(transcript)
-
             except:
                 print("-- link is not working --")
