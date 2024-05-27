@@ -51,6 +51,10 @@ for page in range(1, int(last_page) + 1)[:2]:
             try:
                 print(link)
                 result = requests.get(f"{root}/{link}")
+                content = result.text
+                soup = bs(content, "lxml")
+
+                box = soup.find("article", class_="main-article")
 
 
     with open(f"{title}.txt", "w") as file:
