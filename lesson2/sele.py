@@ -7,5 +7,8 @@ website = "https://www.adamchoi.co.uk/corners/detailed"
 driver = webdriver.Chrome()
 
 driver.get(website)
+driver.find_element_by_xpath('//label[@analytics-event="All matches"]')
 
 driver.quit()
+
+# //*[@id="page-wrapper"]/div/home-away-selector/div/div/div/div/label[2]
