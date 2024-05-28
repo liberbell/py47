@@ -7,7 +7,7 @@ website = "https://www.adamchoi.co.uk/corners/detailed"
 driver = webdriver.Chrome()
 
 driver.get(website)
-driver.find_element_by_xpath('//label[@analytics-event="All matches"]')
+all_matches_button = driver.find_element_by_xpath('//label[@analytics-event="All matches"]')
 
 driver.quit()
 
