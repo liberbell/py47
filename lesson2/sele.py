@@ -12,6 +12,8 @@ all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="Al
 all_matches_button.click()
 
 matches = driver.find_elements(By.TAG_NAME, 'tr')
+for match in matches:
+    print(match.text)
 driver.quit()
 
 # //*[@id="page-wrapper"]/div/home-away-selector/div/div/div/div/label[2]
