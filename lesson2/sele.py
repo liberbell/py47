@@ -6,18 +6,24 @@ from selenium.webdriver.common.by import By
 website = "https://www.adamchoi.co.uk/overs/detailed"
 # path = "./chromedriver"
 browser = webdriver.Chrome()
-
 browser.get(website)
-# all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]')
-# all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]')
-all_matches_button = browser.find_element(By.XPATH, "//label[@analytics-event='All matches']")
 
+all_matches_button = browser.find_element(By.XPATH, "//label[@analytics-event='All matches']")
 all_matches_button.click()
 
 matches = browser.find_elements(By.TAG_NAME, 'tr')
-print(matches)
+
+date = []
+home_team = []
+score = []
+away_team = []
+
 for match in matches:
     print(match.text)
+    date.append(match.find_element(By.XPATH, "./td[1]").text)
+    home_team.append(match.find_element(By.XPATH, "./td[2]").text)
+    score.append(match.find_element(By.XPATH, "./td[3]").text)
+    away_team.append(match.find_element(By.XPATH, "./td[4]").text)
 browser.quit()
 
 # //*[@id="page-wrapper"]/div/home-away-selector/div/div/div/div/label[2]
