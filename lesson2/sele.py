@@ -12,6 +12,7 @@ all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="Al
 all_matches_button.click()
 
 matches = driver.find_elements(By.TAG_NAME, 'tr')
+print(matches)
 for match in matches:
     print(match.text)
 driver.quit()
