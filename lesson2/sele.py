@@ -5,18 +5,20 @@ from selenium.webdriver.common.by import By
 
 website = "https://www.adamchoi.co.uk/overs/detailed"
 # path = "./chromedriver"
-driver = webdriver.Chrome()
+browser = webdriver.Chrome()
 
-driver.get(website)
+browser.get(website)
 # all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]')
-all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]')
+# all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]')
+all_matches_button = browser.find_element(By.XPATH, "//label[@analytics-event='All matches']")
+
 all_matches_button.click()
 
-matches = driver.find_elements(By.TAG_NAME, 'tr')
+matches = browser.find_elements(By.TAG_NAME, 'tr')
 print(matches)
 for match in matches:
     print(match.text)
-driver.quit()
+browser.quit()
 
 # //*[@id="page-wrapper"]/div/home-away-selector/div/div/div/div/label[2]
 # //*[@id="page-wrapper"]/div/home-away-selector/div/div/div/div/label[2]
