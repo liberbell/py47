@@ -35,9 +35,11 @@ browser.quit()
 # /html/body/div[2]/div/div/div[2]/div/home-away-selector/div/div/div/div/label[2]
 # <label class="btn btn-sm btn-primary ng-untouched ng-valid ng-not-empty ng-dirty active ng-valid-parse" data-ng-model="hasc.$scope.doShowSplit" data-btn-radio="false" analytics-on="click" analytics-event="All matches" analytics-category="Detailed pages filters" analytics-label="Home Away Selector">All matches</label>
 
-pd.DataFrame({
+df = pd.DataFrame({
     'date': date,
     'home_team': home_team,
     'score': score,
     'away_team': away_team
     })
+df.to_csv("football_data.csv", index=False)
+print(df)
