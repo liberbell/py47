@@ -2,6 +2,7 @@ from selenium import webdriver
 import chromedriver_binary
 # pip install chromedriver-binary==125.0.6422.78.0
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 import pandas as pd
 
 website = "https://www.adamchoi.co.uk/overs/detailed"
@@ -11,6 +12,8 @@ browser.get(website)
 
 all_matches_button = browser.find_element(By.XPATH, "//label[@analytics-event='All matches']")
 all_matches_button.click()
+
+dropdown = Select(driver.find_element(By.ID, "country"))
 
 matches = browser.find_elements(By.TAG_NAME, 'tr')
 
