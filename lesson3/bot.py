@@ -9,4 +9,7 @@ browser.get(url)
 browser.maxmize_window()
 
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
-products = container.find_element(BY.XPATH, "./li")
+products = container.find_element(By.XPATH, "./li")
+
+for product in products:
+    product.find_element(By.XPATH, '//h3[contains(@class, "bc-heading")]').text
