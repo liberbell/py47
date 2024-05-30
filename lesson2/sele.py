@@ -14,7 +14,7 @@ browser.get(website)
 all_matches_button = browser.find_element(By.XPATH, "//label[@analytics-event='All matches']")
 all_matches_button.click()
 
-dropdown = Select(driver.find_element(By.ID, "country"))
+dropdown = Select(browser.find_element(By.ID, "country"))
 dropdown.select_by_visible_text("Spain")
 
 time.sleep(2)
