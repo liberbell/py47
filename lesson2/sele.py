@@ -4,6 +4,7 @@ import chromedriver_binary
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import pandas as pd
+import time
 
 website = "https://www.adamchoi.co.uk/overs/detailed"
 # path = "./chromedriver"
@@ -14,6 +15,9 @@ all_matches_button = browser.find_element(By.XPATH, "//label[@analytics-event='A
 all_matches_button.click()
 
 dropdown = Select(driver.find_element(By.ID, "country"))
+dropdown.select_by_visible_text("Spain")
+
+time.sleep(2)
 
 matches = browser.find_elements(By.TAG_NAME, 'tr')
 
