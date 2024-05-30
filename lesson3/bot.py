@@ -12,4 +12,4 @@ container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
 products = container.find_element(By.XPATH, "./li")
 
 for product in products:
-    product.find_element(By.XPATH, '//h3[contains(@class, "bc-heading")]').text
+    title = product.find_element(By.XPATH, '//h3[contains(@class, "bc-heading")]').text
