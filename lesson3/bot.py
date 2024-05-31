@@ -28,4 +28,4 @@ df_books = pd.DataFrame({
     "runtime": book_runtime
     })
 
-df_books.to_csv("books.csv")
+df_books.to_csv("books.csv", index=False)
