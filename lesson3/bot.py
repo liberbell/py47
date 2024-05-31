@@ -10,7 +10,7 @@ browser.get(url)
 browser.maximize_window()
 
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
-products = container.find_element(By.XPATH, "./li")
+products = container.find_elements(By.XPATH, "./li")
 
 book_title = []
 book_author = []
