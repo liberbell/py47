@@ -11,5 +11,10 @@ browser.maxmize_window()
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
 products = container.find_element(By.XPATH, "./li")
 
+book_title = []
+book_author = []
+book_runtime = []
 for product in products:
-    title = product.find_element(By.XPATH, '//h3[contains(@class, "bc-heading")]').text
+    book_title = product.find_element(By.XPATH, './/h3[contains(@class, "bc-heading")]').text
+    book_author = product.find_element(By.XPATH, './/li[contains(@class, "authorLabel")]').text
+    book_runtime = product.find_element(By.XPATH, './/li[contains(@class, "runtimeLabel")]').text
