@@ -21,3 +21,11 @@ for product in products:
     book_runtime.append(product.find_element(By.XPATH, './/li[contains(@class, "runtimeLabel")]').text)
 
 brower.quit()
+
+df_books = pd.DataFrame({
+    "title": book_title,
+    "author": book_author,
+    "runtime": book_runtime
+    })
+
+df_books.to_csv("books.csv")
