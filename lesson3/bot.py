@@ -20,7 +20,7 @@ for product in products:
     book_author.append(product.find_element(By.XPATH, './/li[contains(@class, "authorLabel")]').text)
     book_runtime.append(product.find_element(By.XPATH, './/li[contains(@class, "runtimeLabel")]').text)
 
-brower.quit()
+browser.quit()
 
 df_books = pd.DataFrame({
     "title": book_title,
