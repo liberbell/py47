@@ -7,7 +7,7 @@ url = "https://www.audible.com/search"
 
 browser = webdriver.Chrome()
 browser.get(url)
-browser.maxmize_window()
+browser.maximize_window()
 
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
 products = container.find_element(By.XPATH, "./li")
