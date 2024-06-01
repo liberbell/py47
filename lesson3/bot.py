@@ -1,9 +1,13 @@
 from selenium import webdriver
 import chromedriver_binary
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 import pandas as pd
 
 url = "https://www.audible.com/search"
+
+options = Options()
+options.add_argument("--headless")
 
 browser = webdriver.Chrome()
 browser.get(url)
