@@ -7,11 +7,11 @@ import pandas as pd
 url = "https://www.audible.com/search"
 
 options = Options()
-options.add_argument("--headless=new")
+# options.add_argument("--headless=new")
 options.add_argument("--window-size=1920x1080")
 
 browser = webdriver.Chrome(options=options)
-browser.implicitly_wait(3)
+browser.implicitly_wait(5)
 browser.get(url)
 # browser.maximize_window()
 
