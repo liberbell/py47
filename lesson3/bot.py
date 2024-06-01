@@ -11,7 +11,7 @@ options.add_argument("--headless=new")
 options.add_argument("--window-size=1920x1080")
 
 browser = webdriver.Chrome(options=options)
-browser.implicitly_wait(1)
+browser.implicitly_wait(3)
 browser.get(url)
 # browser.maximize_window()
 
