@@ -8,14 +8,14 @@ import pandas as pd
 url = "https://www.audible.com/search"
 
 options = Options()
-options.add_argument("--headless=new")
+# options.add_argument("--headless=new")
 options.add_argument("--window-size=1920,1080")
 options.add_argument("--user-agent=" + UserAgent("windows").chrome)
 
 browser = webdriver.Chrome(options=options)
 browser.get(url)
-browser.implicitly_wait(5)
-print(browser.page_source)
+browser.implicitly_wait(2)
+# print(browser.page_source)
 # browser.maximize_window()
 
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
