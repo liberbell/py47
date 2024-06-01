@@ -10,7 +10,7 @@ url = "https://www.audible.com/search"
 options = Options()
 options.add_argument("--headless=new")
 options.add_argument("--window-size=1920,1080")
-options.add_argument("--user-agent="125.0.6422.141")
+options.add_argument("--user-agent=" + UserAgent("windows").chrome)
 
 browser = webdriver.Chrome(options=options)
 browser.get(url)
