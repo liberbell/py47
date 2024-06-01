@@ -7,12 +7,12 @@ import pandas as pd
 url = "https://www.audible.com/search"
 
 options = Options()
-# options.add_argument("--headless=new")
-options.add_argument("--window-size=1920x1080")
+options.add_argument("--headless=new")
+options.add_argument("--window-size=1920,1080")
 
 browser = webdriver.Chrome(options=options)
-browser.implicitly_wait(5)
 browser.get(url)
+browser.implicitly_wait(5)
 # browser.maximize_window()
 
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
@@ -36,4 +36,4 @@ df_books = pd.DataFrame({
     "runtime": book_runtime
     })
 
-df_books.to_csv("books.csv", index=False)
+df_books.to_csv("books_headless.csv", index=False)
