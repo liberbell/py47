@@ -8,10 +8,11 @@ url = "https://www.audible.com/search"
 
 options = Options()
 options.add_argument("--headless")
+options.add_argument("--window-size=1920x1080")
 
-browser = webdriver.Chrome()
+browser = webdriver.Chrome(options=options)
 browser.get(url)
-browser.maximize_window()
+# browser.maximize_window()
 
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
 products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
