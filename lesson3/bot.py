@@ -2,6 +2,7 @@ from selenium import webdriver
 import chromedriver_binary
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from anti_useragent import UserAgent
 import pandas as pd
 
 url = "https://www.audible.com/search"
@@ -9,6 +10,7 @@ url = "https://www.audible.com/search"
 options = Options()
 options.add_argument("--headless=new")
 options.add_argument("--window-size=1920,1080")
+options.add_argument("--user-agent="125.0.6422.141")
 
 browser = webdriver.Chrome(options=options)
 browser.get(url)
