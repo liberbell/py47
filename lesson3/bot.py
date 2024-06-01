@@ -15,8 +15,10 @@ options.add_argument("--user-agent=" + UserAgent("windows").chrome)
 browser = webdriver.Chrome(options=options)
 browser.get(url)
 browser.implicitly_wait(5)
+browser.page_source
 # browser.maximize_window()
 
+wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'adbl-impression-container')))
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
 products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
 
