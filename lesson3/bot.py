@@ -19,7 +19,7 @@ browser.implicitly_wait(2)
 # print(browser.page_source)
 # browser.maximize_window()
 
-pagination = browser.find_element(By.XPATH, "//ul[contains(@class, 'pagingElements')]")
+pagination = browser.find_element(By.XPATH, '/ul[contains(@class,"pagingElements")]/li')
 pages = pagination.find_element(By.TAG_NAME, 'li')
 last_page = int(pages[-2].text)
 
