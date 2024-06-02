@@ -21,8 +21,6 @@ browser.implicitly_wait(2)
 paginaion = browser.find_element(By.XPATH, "//ul[contains(@class, 'pagingElements')]")
 pages = pagination.find_element(By.TAG_NAME, 'li')
 last_page = int(pages[-2].text)
-next_page = browser.find_element(By.XPATH, '//span[contains(@class, "nextButton")]')
-next_page.click()
 
 current_page = 1
 while current_page <= last_page:
@@ -38,6 +36,9 @@ while current_page <= last_page:
         print(title)
         book_author.append(product.find_element(By.XPATH, './/li[contains(@class, "authorLabel")]').text)
         book_runtime.append(product.find_element(By.XPATH, './/li[contains(@class, "runtimeLabel")]').text)
+
+    next_page = browser.find_element(By.XPATH, '//span[contains(@class, "nextButton")]')
+    next_page.click()
 
 # browser.quit()
 
