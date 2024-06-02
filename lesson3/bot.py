@@ -19,6 +19,8 @@ browser.implicitly_wait(2)
 # browser.maximize_window()
 
 paginaion = browser.find_element(By.XPATH, "//ul[contains(@class, 'pagingElements')]")
+pages = pagination.find_element(By.TAG_NAME, 'li')
+last_page = int(pages[-2].text)
 
 container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
 products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
