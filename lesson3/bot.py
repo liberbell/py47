@@ -2,6 +2,8 @@ from selenium import webdriver
 import chromedriver_binary
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from anti_useragent import UserAgent
 import pandas as pd
 import time
@@ -30,6 +32,7 @@ book_runtime = []
 
 while current_page <= last_page:
     time.sleep(2)
+    container = WebDriverWait
     container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
     products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
 
