@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from anti_useragent import UserAgent
 import pandas as pd
+import time
 
 url = "https://www.audible.com/search"
 
@@ -26,7 +27,9 @@ current_page = 1
 book_title = []
 book_author = []
 book_runtime = []
+
 while current_page <= last_page:
+    time.sleep(2)
     container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
     products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
 
