@@ -34,7 +34,8 @@ while current_page <= last_page:
     time.sleep(2)
     container = WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.CLASS_NAME, 'adbl-impression-container')))
     # container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
-    products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
+    products = WebDriverWait(container, 5).until(EC.presence_of_all_elements_located(By.XPATH, './/li[contains(@class, "productListItem'))
+    # products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
 
     for product in products:
         title = product.find_element(By.XPATH, './/h3[contains(@class, "bc-heading")]').text
