@@ -26,20 +26,18 @@ next_page.click()
 
 current_page = 1
 while current_page <= last_page:
-    
+    container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
+    products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
 
-container = browser.find_element(By.CLASS_NAME, "adbl-impression-container")
-products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')
-
-book_title = []
-book_author = []
-book_runtime = []
-for product in products:
-    title = product.find_element(By.XPATH, './/h3[contains(@class, "bc-heading")]').text
-    book_title.append(title)
-    print(title)
-    book_author.append(product.find_element(By.XPATH, './/li[contains(@class, "authorLabel")]').text)
-    book_runtime.append(product.find_element(By.XPATH, './/li[contains(@class, "runtimeLabel")]').text)
+    book_title = []
+    book_author = []
+    book_runtime = []
+    for product in products:
+        title = product.find_element(By.XPATH, './/h3[contains(@class, "bc-heading")]').text
+        book_title.append(title)
+        print(title)
+        book_author.append(product.find_element(By.XPATH, './/li[contains(@class, "authorLabel")]').text)
+        book_runtime.append(product.find_element(By.XPATH, './/li[contains(@class, "runtimeLabel")]').text)
 
 # browser.quit()
 
