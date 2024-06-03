@@ -10,7 +10,7 @@ class WorldometersSpider(scrapy.Spider):
         title = response.xpath('//h1/text()').get()
         countries = response.xpath('//td/a/text()').getall()
 
-        yeild {
+        yield {
             "title": title,
             "countries": countried,
         }
