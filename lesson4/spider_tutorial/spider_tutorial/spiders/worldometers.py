@@ -25,6 +25,7 @@ class WorldometersSpider(scrapy.Spider):
             #     # "country_url": country_url,
             #     "absolute_url": absolute_url,
             # }
-            yield scrapy.Request(url=absolute_url)
+            # yield scrapy.http.Request(url=absolute_url)
+            yield scrapy.follow(country_url)
 
 # /html/body/div[2]/div[2]/div/div/div[1]/h1
