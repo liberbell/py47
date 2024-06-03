@@ -15,8 +15,10 @@ class WorldometersSpider(scrapy.Spider):
             country_url = country.xpath('.//@href').get()
 
         yield {
-            "title": title,
-            "countries": countries,
+            # "title": title,
+            # "countries": countries,
+            "country_name": country_name,
+            "country_url": country_url,
         }
 
 # /html/body/div[2]/div[2]/div/div/div[1]/h1
