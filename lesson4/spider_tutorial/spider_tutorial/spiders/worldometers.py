@@ -12,7 +12,7 @@ class WorldometersSpider(scrapy.Spider):
 
         yield {
             "title": title,
-            "countries": countried,
+            "countries": countries,
         }
 
 # /html/body/div[2]/div[2]/div/div/div[1]/h1
