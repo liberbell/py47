@@ -11,11 +11,11 @@ class WorldometersSpider(scrapy.Spider):
         countries = response.xpath('//td/a')
 
         for country in countries:
-            country_name = country.xpath('.//text()').get()
+            country_name = country.xpath(".//text()").get()
             country_url = country.xpath('.//@href').get()
 
         yield {
-            "countries": countries,
+            # "countries": countries,
             # "title": title,
             # "countries": countries,
             "country_name": country_name,
