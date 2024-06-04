@@ -33,11 +33,11 @@ class WorldometersSpider(scrapy.Spider):
         rows = response.xpath("(//table[contains(@class, 'table')][1]/tbody/tr")
         for row in rows:
             year = row.xpath('.//td[1]/text()').get()
-            poplation = row.xpath('.//td[2]/strong/text()').get()
+            population = row.xpath('.//td[2]/strong/text()').get()
 
             yield {
                 "Year": year,
-                "Poplation": poplation,
+                "Population": population,
             }
 
 
