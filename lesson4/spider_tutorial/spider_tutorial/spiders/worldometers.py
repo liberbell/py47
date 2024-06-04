@@ -30,7 +30,15 @@ class WorldometersSpider(scrapy.Spider):
 
     def parse_country(self, response):
         # response.xpath('(//table[@class="table table-striped table-bordered table-hover table-condensed table-list"])[1]/tbody/tr')
-        response.xpath("(//table[contains(@class, 'table')][1]/tbody/tr")
+        rows = response.xpath("(//table[contains(@class, 'table')][1]/tbody/tr")
+        for row in rows:
+            year = row.xpath('.//td[1]/text()').get()
+            poplation = row.xpath('.//td[2]/strong/text()').get()
+
+            yield {
+                "Year": year,
+                "Poplation": poplation,
+            }
 
 
 # /html/body/div[2]/div[2]/div/div/div[1]/h1
