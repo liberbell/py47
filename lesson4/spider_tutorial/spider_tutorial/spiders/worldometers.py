@@ -26,7 +26,7 @@ class WorldometersSpider(scrapy.Spider):
             #     "absolute_url": absolute_url,
             # }
             # yield scrapy.Request(url=absolute_url)
-            yield response.follow(url=country_url)
+            yield response.follow(url=country_url, callback=self.parse_country)
 
     def parse_country(self, response):
         # response.xpath('(//table[@class="table table-striped table-bordered table-hover table-condensed table-list"])[1]/tbody/tr')
