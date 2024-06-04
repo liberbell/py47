@@ -29,8 +29,8 @@ class WorldometersSpider(scrapy.Spider):
             yield response.follow(url=country_url)
 
     def parse_country(self, response):
-        response.xpath('(//table[@class="table table-striped table-bordered table-hover table-condensed table-list"])[1]/tbody/tr')
-        response.xpath("(//table[contains(@class='table')][1]/tbody/tr")
+        # response.xpath('(//table[@class="table table-striped table-bordered table-hover table-condensed table-list"])[1]/tbody/tr')
+        response.xpath("(//table[contains(@class, 'table')][1]/tbody/tr")
 
 
 # /html/body/div[2]/div[2]/div/div/div[1]/h1
