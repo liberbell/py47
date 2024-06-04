@@ -37,6 +37,7 @@ class WorldometersSpider(scrapy.Spider):
             population = row.xpath('.//td[2]/strong/text()').get()
 
             yield {
+                "Country": country,
                 "Year": year,
                 "Population": population,
             }
