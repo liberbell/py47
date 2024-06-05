@@ -7,7 +7,8 @@ class AudibleSpider(scrapy.Spider):
     start_urls = ['https://www.audible.com/search']
 
     def parse(self, response):
-        product_container = response.xpath('//div[@class="adbl-impression-container "]/div/span/ul/li')
+        # product_container = response.xpath('//div[@class="adbl-impression-container "]/div/span/ul/li')
+        product_container = response.xpath('//div[@class="adbl-impression-container "]//li[contains(@class, "productListItem")]')
 
         for product in product_container:
             book_title = product.xpaht('.//h3[contains(@class, "bc-heading")]/span/a/text()').get()
