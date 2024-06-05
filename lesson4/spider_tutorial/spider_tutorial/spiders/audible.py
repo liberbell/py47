@@ -10,5 +10,6 @@ class AudibleSpider(scrapy.Spider):
         product_container = response.xpath('//div[@class="adbl-impression-container "]/div/span/ul/li')
 
         for product in product_container:
+            book_title = product.xpaht('.//h3[contains(@class, "bc-heading")]/span/a/text()').get()
             book_author = product.xpaht('.//li[contains(@class, "authorLabel")]/span/a/text()').getall()
-            book_length = product.xpaht('.//li[contains(@class, "runtimeLabel")]/span/text()').getall()
+            book_length = product.xpaht('.//li[contains(@class, "runtimeLabel")]/span/text()').get()
