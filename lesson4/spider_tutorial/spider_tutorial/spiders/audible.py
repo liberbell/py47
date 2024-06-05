@@ -20,3 +20,6 @@ class AudibleSpider(scrapy.Spider):
                 "Book_author": book_author,
                 "Book_length": book_length,
             }
+
+            pagination = response.xpath('//ul[contains(@class, "pagingElements")]/a/text()')
+            next_button = response.xpath()nextButton
