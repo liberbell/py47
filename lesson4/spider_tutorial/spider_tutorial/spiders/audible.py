@@ -13,3 +13,9 @@ class AudibleSpider(scrapy.Spider):
             book_title = product.xpaht('.//h3[contains(@class, "bc-heading")]/span/a/text()').get()
             book_author = product.xpaht('.//li[contains(@class, "authorLabel")]/span/a/text()').getall()
             book_length = product.xpaht('.//li[contains(@class, "runtimeLabel")]/span/text()').get()
+
+            yield {
+                "Book_title": book_title,
+                "Book_author": book_author,
+                "Book_length": book_length,
+            }
