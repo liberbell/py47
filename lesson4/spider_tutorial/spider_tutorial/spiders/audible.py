@@ -10,4 +10,4 @@ class AudibleSpider(scrapy.Spider):
         product_container = response.xpath('//div[@class="adbl-impression-container "]/div/span/ul/li')
 
         for product in product_container:
-            product.xpaht('.//li[contains(@class, "authorLabel")]/span/a/text()')
+            product.xpaht('.//li[contains(@class, "authorLabel")]/span/a/text()').getall()
