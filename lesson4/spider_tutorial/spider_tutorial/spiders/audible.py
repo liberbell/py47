@@ -22,4 +22,7 @@ class AudibleSpider(scrapy.Spider):
             }
 
             pagination = response.xpath('//ul[contains(@class, "pagingElements")]/a/text()')
-            next_page_url = response.xpath('.//span[contains(@class, "nextButton")]/a/@href')
+            next_page_url = response.xpath('.//span[contains(@class, "nextButton")]/a/@href').get()
+
+            if next_page_url:
+                yeild response.follow(next_page_url, callback=self.parse)
