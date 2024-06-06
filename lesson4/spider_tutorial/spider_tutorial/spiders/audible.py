@@ -25,4 +25,4 @@ class AudibleSpider(scrapy.Spider):
             next_page_url = response.xpath('.//span[contains(@class, "nextButton")]/a/@href').get()
 
             if next_page_url:
-                yeild response.follow(next_page_url, callback=self.parse)
+                yield response.follow(next_page_url, callback=self.parse)
