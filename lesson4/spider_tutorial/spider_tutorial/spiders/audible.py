@@ -6,6 +6,9 @@ class AudibleSpider(scrapy.Spider):
     allowed_domains = ['www.audible.com']
     start_urls = ['https://www.audible.com/search']
 
+    def start_request(self):
+        scrapy.Request(url="https://www.audible.com/search", callback=self.parse)
+
     def parse(self, response):
         # product_container = response.xpath('//div[@class="adbl-impression-container "]/div/span/ul/li')
         product_container = response.xpath('//div[@class="adbl-impression-container "]//li[contains(@class, "productListItem")]')
