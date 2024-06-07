@@ -7,7 +7,7 @@ class AudibleSpider(scrapy.Spider):
     # start_urls = ['https://www.audible.com/search']
 
     def start_request(self):
-        yield scrapy.Request(url="https://www.audible.com/search", callback=self.parse,
+        yield scrapy.Request(url="https://www.audible.com/search/", callback=self.parse,
                             headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0'})
 
     def parse(self, response):
