@@ -30,5 +30,5 @@ class AudibleSpider(scrapy.Spider):
             next_page_url = pagination.xpath('.//span[contains(@class, "nextButton")]/a/@href').get()
 
             if next_page_url:
-                yield response.follow(next_page_url, callback=self.parse,
+                yield response.follow(url=next_page_url, callback=self.parse,
                                       headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0'})
