@@ -6,7 +6,7 @@ class AudibleSpider(scrapy.Spider):
     allowed_domains = ['www.audible.com']
     # start_urls = ['https://www.audible.com/search']
 
-    def start_request(self):
+    def start_requests(self):
         yield scrapy.Request(url="https://www.audible.com/search/", callback=self.parse,
                             headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0'})
 
@@ -23,6 +23,7 @@ class AudibleSpider(scrapy.Spider):
                 "Book_title": book_title,
                 "Book_author": book_author,
                 "Book_length": book_length,
+                "User-Agent":response.request.headers['User-Agent'],
             }
 
             pagination = response.xpath('//ul[contains(@class, "pagingElements")]/a/text()')
