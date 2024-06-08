@@ -11,8 +11,4 @@ class TranscriptsSpider(CrawlSpider):
     rules = (Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True),)
 
     def parse_item(self, response):
-        item = {}
-        #item["domain_id"] = response.xpath('//input[@id="sid"]/@value').get()
-        #item["name"] = response.xpath('//div[@id="name"]').get()
-        #item["description"] = response.xpath('//div[@id="description"]').get()
-        return item
+        print(response.url)
