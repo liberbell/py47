@@ -17,5 +17,6 @@ class TranscriptsSpider(CrawlSpider):
         article = response.xpath("//article[@class='main-article']")
         yield {
             "title": article.xpath("./h1"),
-            "plot": article.xpath("./p")
+            "plot": article.xpath("./p"),
+            "transcript": article.xpath("./div[@class='full-script']"),
         }
