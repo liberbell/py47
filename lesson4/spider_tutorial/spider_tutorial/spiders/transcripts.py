@@ -11,7 +11,10 @@ class TranscriptsSpider(CrawlSpider):
     }
     start_urls = ["https://subslikescript.com/movies"]
 
-    rules = (Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True),)
+    rules = (
+        Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True),
+        Rule(LinkExtractor(restrict_xpaths=("//a[@rel='next']"))),
+    )
 
     def parse_item(self, response):
         article = response.xpath("//article[@class='main-article']")
