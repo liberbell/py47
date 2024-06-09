@@ -19,11 +19,12 @@ class TranscriptsSpider(CrawlSpider):
 
     rules = (
         Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True, process_request="set_user_agent"),
-        Rule(LinkExtractor(restrict_xpaths=("(//a[@rel='next'])[1]"))),
+        Rule(LinkExtractor(restrict_xpaths=("(//a[@rel='next'])[1]")), process_request="set_user_agent"),
     )
 
     def set_user_agent(self, request, spider):
         request.headers["User-Agent"] = self.user_agent
+        return request
 
     def parse_item(self, response):
         article = response.xpath("//article[@class='main-article']")
