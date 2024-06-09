@@ -10,6 +10,7 @@ class TranscriptsSpider(CrawlSpider):
         'DOWNLOAD_DELAY': 0.5,
     }
     start_urls = ["https://subslikescript.com/movies_letter-X"]
+    user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0'
 
     rules = (
         Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True),
