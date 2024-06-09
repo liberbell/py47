@@ -21,6 +21,15 @@ import pymongo
 #         return item
 
 class MongodbPipeline:
+    collection_name = "transcripts"
+
     def open_spider(self, spider):
         self.client = pymongo.MongoClient("")
         self.db = self.client['My_Database']
+
+    def close_spider(self, item, spider):
+        self.client.close()
+
+    def process_item(self, item, spider):
+        self.db[self.collection_name].insert(item)
+        return item
