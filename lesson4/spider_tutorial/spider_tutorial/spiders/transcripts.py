@@ -9,7 +9,7 @@ class TranscriptsSpider(CrawlSpider):
     custom_settings = {
         'DOWNLOAD_DELAY': 0.5,
     }
-    start_urls = ["https://subslikescript.com/movies"]
+    start_urls = ["https://subslikescript.com/movies_letter-X"]
 
     rules = (
         Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True),
