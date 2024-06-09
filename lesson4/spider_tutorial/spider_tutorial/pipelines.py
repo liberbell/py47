@@ -24,7 +24,7 @@ class MongodbPipeline:
     collection_name = "transcripts"
 
     def open_spider(self, spider):
-        self.client = pymongo.MongoClient("mongodb+srv://<username>:<password>@cluster0.4zuzwrb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+        self.client = pymongo.MongoClient("mongodb+srv://scrapy-user:hpmPIngMHPTMceKj@cluster0.4zuzwrb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
         self.db = self.client['My_Database']
 
     def close_spider(self, item, spider):
