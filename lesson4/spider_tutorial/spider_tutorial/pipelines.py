@@ -7,14 +7,20 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 import logging
+import pymongo
 
 
-class SpiderTutorialPipeline:
+# class SpiderTutorialPipeline:
+#     def open_spider(self, spider):
+#         logging.warning("Spider opened")
+
+#     def close_spider(self, spider):
+#         logging.warning("Spider closed")
+
+#     def process_item(self, item, spider):
+#         return item
+
+class MongodbPipeline:
     def open_spider(self, spider):
-        logging.warning("Spider opened")
-
-    def close_spider(self, spider):
-        logging.warning("Spider closed")
-
-    def process_item(self, item, spider):
-        return item
+        self.client = pymongo.MongoClient("")
+        self.db = self.client['My_Database']
