@@ -14,7 +14,7 @@ class SpiderTutorialPipeline:
         logging.warning("Spider opened")
 
     def close_spider(self, spider):
-        pass
+        logging.warning("Spider closed")
 
     def process_item(self, item, spider):
         return item
