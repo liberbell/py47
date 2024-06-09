@@ -13,7 +13,7 @@ class TranscriptsSpider(CrawlSpider):
 
     rules = (
         Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True),
-        Rule(LinkExtractor(restrict_xpaths=("//a[@rel='next']"))),
+        Rule(LinkExtractor(restrict_xpaths=("(//a[@rel='next'])[1]"))),
     )
 
     def parse_item(self, response):
@@ -21,6 +21,6 @@ class TranscriptsSpider(CrawlSpider):
         yield {
             "title": article.xpath("./h1/text()").get(),
             "plot": article.xpath("./p/text()").get(),
-            "transcript": article.xpath("./div[@class='full-script']").getall(),
+            # "transcript": article.xpath("./div[@class='full-script']").getall(),
             "url": response.url,
         }
