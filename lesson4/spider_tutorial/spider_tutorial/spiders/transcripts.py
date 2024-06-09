@@ -12,8 +12,13 @@ class TranscriptsSpider(CrawlSpider):
     start_urls = ["https://subslikescript.com/movies_letter-X"]
     user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0'
 
+    def start_requests(self):
+        yield scrapy.Request(url="https://subslikescript.com/movies_letter-X", headers={
+            "user-agent": self.user_agent
+        })
+
     rules = (
-        Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True),
+        Rule(LinkExtractor(restrict_xpaths=("//ul[@class='scripts-list']/li/a")), callback="parse_item", follow=True, process_request="set_user_agent"),
         Rule(LinkExtractor(restrict_xpaths=("(//a[@rel='next'])[1]"))),
     )
 
