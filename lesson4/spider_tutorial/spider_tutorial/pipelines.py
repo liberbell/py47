@@ -27,7 +27,7 @@ class MongodbPipeline:
         self.client = pymongo.MongoClient("mongodb+srv://scrapy-user:hpmPIngMHPTMceKj@cluster0.4zuzwrb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
         self.db = self.client['My_Database']
 
-    def close_spider(self, item, spider):
+    def close_spider(self, spider):
         self.client.close()
 
     def process_item(self, item, spider):
