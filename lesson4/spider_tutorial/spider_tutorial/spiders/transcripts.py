@@ -22,6 +22,9 @@ class TranscriptsSpider(CrawlSpider):
         Rule(LinkExtractor(restrict_xpaths=("(//a[@rel='next'])[1]"))),
     )
 
+    def set_user_agent(self, request, spider):
+        request.headers["User-Agent"] = self.user_agent
+
     def parse_item(self, response):
         article = response.xpath("//article[@class='main-article']")
         yield {
