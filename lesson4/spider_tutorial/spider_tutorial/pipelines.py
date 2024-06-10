@@ -49,10 +49,13 @@ CREATE TABLE transcripts(
                        url TEXT,
                        )
 ''')
+        self.connection.commit()
 
     def close_spider(self, spider):
         self.client.close()
 
     def process_item(self, item, spider):
-        self.db[self.collection_name].insert_one(item)
-        return item
+        self.c.execute('''
+                       INSERT INTO transcripts (title, plot, transcript, url)
+                       VALUES (?, ?, ?, ?)
+                       ''')
