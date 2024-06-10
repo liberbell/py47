@@ -36,8 +36,6 @@ class MongodbPipeline:
         return item
     
 class SQLitePipeline:
-    collection_name = "transcripts"
-
     def open_spider(self, spider):
         self.connection = sqlite3.connect("transcripts.db")
         self.c = self.connection.cursor()
@@ -56,8 +54,7 @@ CREATE TABLE transcripts(
 
     def process_item(self, item, spider):
         self.c.execute('''
-                       INSERT INTO transcripts (title, plot, transcript, url)
-                       VALUES (?, ?, ?, ?)
+                       INSERT INTO transcripts (title, plot, transcript, url) VALUES (?, ?, ?, ?)
                        ''', (
                            item.get('title'),
                            item.get('plot'),
