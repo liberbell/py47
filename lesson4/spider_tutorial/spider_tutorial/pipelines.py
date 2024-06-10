@@ -8,6 +8,7 @@
 from itemadapter import ItemAdapter
 import logging
 import pymongo
+import sqlite3
 
 
 # class SpiderTutorialPipeline:
@@ -38,7 +39,16 @@ class SQLitePipeline:
     collection_name = "transcripts"
 
     def open_spider(self, spider):
-        self.connection = sqlite3.connect("")
+        self.connection = sqlite3.connect("transcripts.db")
+        self.c = self.connection.cursor()
+        self.c.execute('''
+CREATE TABLE transcripts(
+                       title TEXT,
+                       plot TEXT,
+                       transcript TEXT,
+                       url TEXT,
+                       )
+''')
 
     def close_spider(self, spider):
         self.client.close()
