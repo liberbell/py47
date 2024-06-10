@@ -61,5 +61,8 @@ CREATE TABLE transcripts(
                        ''', (
                            item.get('title'),
                            item.get('plot'),
+                           item.get('transcript'),
+                           item.get('url'),
                        ))
+        self.connection.commit()
         return item
