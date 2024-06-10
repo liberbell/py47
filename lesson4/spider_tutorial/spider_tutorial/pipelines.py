@@ -46,13 +46,13 @@ CREATE TABLE transcripts(
                        title TEXT,
                        plot TEXT,
                        transcript TEXT,
-                       url TEXT,
+                       url TEXT
                        )
 ''')
         self.connection.commit()
 
     def close_spider(self, spider):
-        self.client.close()
+        self.connection.close()
 
     def process_item(self, item, spider):
         self.c.execute('''
