@@ -33,3 +33,16 @@ class MongodbPipeline:
     def process_item(self, item, spider):
         self.db[self.collection_name].insert_one(item)
         return item
+    
+class SQLitePipeline:
+    collection_name = "transcripts"
+
+    def open_spider(self, spider):
+        self.connection = sqlite3.connect("")
+
+    def close_spider(self, spider):
+        self.client.close()
+
+    def process_item(self, item, spider):
+        self.db[self.collection_name].insert_one(item)
+        return item
