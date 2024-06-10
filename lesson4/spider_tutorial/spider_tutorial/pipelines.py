@@ -58,4 +58,8 @@ CREATE TABLE transcripts(
         self.c.execute('''
                        INSERT INTO transcripts (title, plot, transcript, url)
                        VALUES (?, ?, ?, ?)
-                       ''')
+                       ''', (
+                           item.get('title'),
+                           item.get('plot'),
+                       ))
+        return item
