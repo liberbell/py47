@@ -35,30 +35,69 @@ class MongodbPipeline:
         self.db[self.collection_name].insert_one(item)
         return item
     
+# class SQLitePipeline:
+#     def open_spider(self, spider):
+#         self.connection = sqlite3.connect("transcripts.db")
+#         self.c = self.connection.cursor()
+#         self.c.execute('''CREATE TABLE transcripts(
+#                        title TEXT,
+#                        plot TEXT,
+#                        transcript TEXT,
+#                        url TEXT
+#                        )''')
+#         self.connection.commit()
+
+#     def close_spider(self, spider):
+#         self.connection.close()
+
+#     def process_item(self, item, spider):
+#         self.c.execute("INSERT INTO transcripts (title,plot,transcript,url) VALUES(?,?,?,?)",
+#                         (
+#                            item.get('title'),
+#                            item.get('plot'),
+#                            item.get('transcript'),
+#                            item.get('url'),
+#                        ))
+#         self.connection.commit()
+#         return item
+    
 class SQLitePipeline:
+
     def open_spider(self, spider):
-        self.connection = sqlite3.connect("transcripts.db")
+        # create database file
+        self.connection = sqlite3.connect('transcripts.db')
+        # we need a cursor object to execute SQL queries
         self.c = self.connection.cursor()
-        self.c.execute('''
-CREATE TABLE transcripts(
-                       title TEXT,
-                       plot TEXT,
-                       transcript TEXT,
-                       url TEXT
-                       )
-''')
-        self.connection.commit()
+        #  try/except will help when running this for the +2nd time (we can't create the same table twice)
+        try:
+            # query: create table with columns
+            self.c.execute('''
+                CREATE TABLE transcripts(
+                    title TEXT,
+                    plot TEXT,
+                    transcript TEXT,
+                    url TEXT
+                )
+            ''')
+            # save changes
+            self.connection.commit()
+        except sqlite3.OperationalError:
+            pass
+
 
     def close_spider(self, spider):
         self.connection.close()
 
     def process_item(self, item, spider):
-        self.c.execute("INSERT INTO transcripts (title,plot,transcript,url) VALUES(?,?,?,?)",
-                        (
-                           item.get('title'),
-                           item.get('plot'),
-                           item.get('transcript'),
-                           item.get('url'),
-                       ))
+        # query: insert data into table
+        self.c.execute('''
+            INSERT INTO transcripts (title,plot,transcript,url) VALUES(?,?,?,?)
+        ''', (
+            item.get('title'),
+            item.get('plot'),
+            item.get('transcript'),
+            item.get('url'),
+        ))
+        # save changes
         self.connection.commit()
         return item
