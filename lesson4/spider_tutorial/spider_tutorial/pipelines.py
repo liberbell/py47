@@ -53,9 +53,8 @@ CREATE TABLE transcripts(
         self.connection.close()
 
     def process_item(self, item, spider):
-        self.c.execute('''
-INSERT INTO transcripts (title,plot,transcript,url) VALUES(?,?,?,?)
-''', (
+        self.c.execute("INSERT INTO transcripts (title,plot,transcript,url) VALUES(?,?,?,?)",
+                        (
                            item.get('title'),
                            item.get('plot'),
                            item.get('transcript'),
