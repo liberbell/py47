@@ -13,5 +13,7 @@ class QuotesSpider(scrapy.Spider):
         print(quotes)
         for quote in quotes:
             yield {
-                "author": quote.get("author"),
+                "author": quote.get("author").get("name"),
+                "tags": quote.get("tags"),
+                "quotes": quote.get("text"),
             }
