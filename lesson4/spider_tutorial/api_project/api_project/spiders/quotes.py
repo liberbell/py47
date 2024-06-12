@@ -7,4 +7,4 @@ class QuotesSpider(scrapy.Spider):
     start_urls = ["https://quotes.toscrape.com/api/quotes?page=1"]
 
     def parse(self, response):
-        pass
+        print(response.body)
