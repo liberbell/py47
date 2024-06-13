@@ -11,5 +11,10 @@ class QuotesLoginSpider(scrapy.Spider):
         csrf_token = response.xpath("//input[@name='csrf_token']/@value").get()
         yield FormRequest.from_response(
             response,
-            formxpath='//form'
+            formxpath='//form',
+            formdata={
+                'csrf_token',
+                'username',
+                'password'
+            },
         )
