@@ -17,4 +17,9 @@ class QuotesLoginSpider(scrapy.Spider):
                 'username',
                 'password'
             },
+            callback=self.after_login
         )
+
+    def after_login(self, response):
+        if response.xpath('//a[@href="/logout"]/text()').get():
+            print("Successfully logged in")
