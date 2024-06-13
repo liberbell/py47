@@ -13,9 +13,9 @@ class QuotesLoginSpider(scrapy.Spider):
             response,
             formxpath='//form',
             formdata={
-                'csrf_token',
-                'username',
-                'password'
+                'csrf_token': csrf_token,
+                'username': "admin",
+                'password': "admin"
             },
             callback=self.after_login
         )
