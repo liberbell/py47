@@ -10,4 +10,4 @@ df = pd.DataFrame({
     "2ndline": [10, 20, 30, 40, 50],
 })
 
-st.write(df)
+st.dataframe(df)
