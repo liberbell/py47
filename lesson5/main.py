@@ -10,4 +10,17 @@ df = pd.DataFrame({
     "2ndline": [10, 20, 30, 40, 50],
 })
 
-st.dataframe(df.style.highlight_max(axis=0))
+st.table(df.style.highlight_max(axis=0))
+
+"""
+# 1st line
+## 2nd line
+### 3rd line
+
+```python
+import streamlit as st
+import numpy as np
+import pandas as pd
+```
+
+"""
