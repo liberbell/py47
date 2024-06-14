@@ -10,4 +10,4 @@ df = pd.DataFrame({
     "2ndline": [10, 20, 30, 40, 50],
 })
 
-st.dataframe(df, width=100, height=100)
+st.dataframe(df.style.highlight_max(axis=0))
