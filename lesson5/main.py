@@ -5,22 +5,23 @@ import pandas as pd
 st.title("Streamlit introduction")
 st.write("DataFrame")
 
-df = pd.DataFrame({
-    "1stline": [1, 2, 3, 4, 5],
-    "2ndline": [10, 20, 30, 40, 50],
-})
+df = pd.DataFrame(
+    np.random.rand(20, 4),
+    columns = ["a", "b", "c", "d"],
+)
 
-st.table(df.style.highlight_max(axis=0))
+# st.table(df.style.highlight_max(axis=0))
 
-"""
-# 1st line
-## 2nd line
-### 3rd line
+# """
+# # 1st line
+# ## 2nd line
+# ### 3rd line
 
-```python
-import streamlit as st
-import numpy as np
-import pandas as pd
-```
+# ```python
+# import streamlit as st
+# import numpy as np
+# import pandas as pd
+# ```
 
-"""
+# """
+
