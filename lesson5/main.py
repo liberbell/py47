@@ -9,3 +9,5 @@ df = pd.DataFrame({
     "1stline": [1, 2, 3, 4, 5],
     "2ndline": [10, 20, 30, 40, 50],
 })
+
+st.write(df)
