@@ -17,10 +17,10 @@ option = st.selectbox(
 
 "Your favorite number is", option
 
-option2 = st.text_input("Input your hobby.")
+option2 = st.sidebar.text_input("Input your hobby.")
 "Your hobby is ", option2
 
-option3 = st.slider("How are you doing?", 0, 100, 50)
+option3 = st.sidebar.slider("How are you doing?", 0, 100, 50)
 "Your condition is ", option3
 
 df = pd.DataFrame(
