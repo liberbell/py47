@@ -5,6 +5,7 @@ from PIL import Image
 
 st.title("Streamlit introduction")
 st.write("Display Image")
+st.sidebar.write("Sidevar widgets")
 
 if st.sidebar.checkbox("Show Image"):
     img = Image.open("aircraft.jpg")
