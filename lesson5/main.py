@@ -4,7 +4,7 @@ import pandas as pd
 from PIL import Image
 
 st.title("Streamlit introduction")
-st.write("DataFrame")
+st.write("Display Image")
 
 df = pd.DataFrame(
     np.random.rand(100, 2)/[50, 50] + [35.69, 139.70],
