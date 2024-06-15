@@ -10,7 +10,7 @@ if st.checkbox("Show Image"):
     img = Image.open("aircraft.jpg")
     st.image(img, caption="aircraft", use_column_width=True)
 
-option = st.selectbox(
+option = st.sidebar.selectbox(
     "Select number",
     list(range(1, 10))
 )
