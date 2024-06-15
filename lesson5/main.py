@@ -7,6 +7,8 @@ st.title("Streamlit introduction")
 st.write("Display Image")
 st.sidebar.write("Sidevar widgets")
 
+left_column, right_column = st.columns(2)
+
 if st.sidebar.checkbox("Show Image"):
     img = Image.open("aircraft.jpg")
     st.image(img, caption="aircraft", use_column_width=True)
