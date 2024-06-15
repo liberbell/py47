@@ -20,6 +20,9 @@ option = st.selectbox(
 option2 = st.text_input("Input your hobby.")
 "Your hobby is ", option2
 
+option3 = st.slider("How are you doing?", 0, 100, 50)
+"Your condition is ", option3
+
 df = pd.DataFrame(
     np.random.rand(100, 2)/[50, 50] + [35.69, 139.70],
     columns = ["lat", "lon"],
