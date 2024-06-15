@@ -6,7 +6,7 @@ from PIL import Image
 st.title("Streamlit introduction")
 st.write("Display Image")
 
-if st.checkbox("Show Image"):
+if st.sidebar.checkbox("Show Image"):
     img = Image.open("aircraft.jpg")
     st.image(img, caption="aircraft", use_column_width=True)
 
