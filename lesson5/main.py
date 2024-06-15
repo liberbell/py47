@@ -17,6 +17,9 @@ option = st.selectbox(
 
 "Your favorite number is", option
 
+option2 = st.text_input("Input your hobby.")
+"Your hobby is ", option2
+
 df = pd.DataFrame(
     np.random.rand(100, 2)/[50, 50] + [35.69, 139.70],
     columns = ["lat", "lon"],
