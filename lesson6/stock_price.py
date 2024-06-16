@@ -9,6 +9,6 @@ input_date = str(days) + "mo"
 hist = appl.history(period=input_date)
 
 hist.index = hist.index.strftime("%d %B %Y")
-hist = [['Close']]
+hist = hist[['Close']]
 hist.columns = ['Apple']
 print(hist)
