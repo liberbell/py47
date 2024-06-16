@@ -8,3 +8,4 @@ input_date = str(days) + "d"
 # print(appl.history(period=f'{days}d'))
 hist = appl.history(period=input_date)
 print(hist)
+print(hist.index)
