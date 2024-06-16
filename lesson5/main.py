@@ -12,6 +12,13 @@ button = left_column.button("Show Right Column")
 if button:
     right_column.write("This is the right column")
 
+expander1 = st.expander("Contact1")
+expander1.write("Write information")
+expander2 = st.expander("Contact2")
+expander2.write("Write information")
+expander3 = st.expander("Contact3")
+expander3.write("Write information")
+
 if st.sidebar.checkbox("Show Image"):
     img = Image.open("aircraft.jpg")
     st.image(img, caption="aircraft", use_column_width=True)
