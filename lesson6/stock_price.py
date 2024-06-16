@@ -11,4 +11,6 @@ hist = appl.history(period=input_date)
 hist.index = hist.index.strftime("%d %B %Y")
 hist = hist[['Close']]
 hist.columns = ['Apple']
+hist = hist.T
+hist.index.name = "Name"
 print(hist)
