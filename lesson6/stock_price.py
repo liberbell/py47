@@ -9,6 +9,8 @@ tickers = {
     "apple": "AAPL",
     "facebook": "Meta"
 }
+
+df = pd.DataFrame()
 # print(appl.history(period=f'{days}d'))
 for company in tickers.keys():
     stock_hist = yf.Ticker(tickers[company])
@@ -19,5 +21,6 @@ for company in tickers.keys():
     hist.columns = [company]
     hist = hist.T
     hist.index.name = "Name"
+    pd.concat([df, hist])
 
 
