@@ -6,6 +6,9 @@ from PIL import Image
 st.title("Streamlit introduction")
 st.write("Show Progress Bar")
 # st.sidebar.write("Sidevar widgets")
+"Start!"
+latest_iteration = st.empty()
+bar = st.progress(0)
 
 left_column, right_column = st.columns(2)
 button = left_column.button("Show Right Column")
