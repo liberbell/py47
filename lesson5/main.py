@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 from PIL import Image
+import time
 
 st.title("Streamlit introduction")
 st.write("Show Progress Bar")
@@ -9,6 +10,8 @@ st.write("Show Progress Bar")
 "Start!"
 latest_iteration = st.empty()
 bar = st.progress(0)
+for i in range(100):
+    time.sleep(0.1)
 
 left_column, right_column = st.columns(2)
 button = left_column.button("Show Right Column")
