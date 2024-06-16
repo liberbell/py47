@@ -3,4 +3,4 @@ import matplotlib.pyplot as plt
 import yfinance as yf
 
 appl = yf.Ticker("AAPL")
-print(appl)
+print(appl.history())
