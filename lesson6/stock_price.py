@@ -5,7 +5,13 @@ import yfinance as yf
 appl = yf.Ticker("AAPL")
 days = 1
 input_date = str(days) + "mo"
+tickers = {
+    "apple": "AAPL",
+    "facebook": "FB"
+}
 # print(appl.history(period=f'{days}d'))
+company = "apple"
+stock_hist = yf.Ticker(tickers[company])
 hist = appl.history(period=input_date)
 
 hist.index = hist.index.strftime("%d %B %Y")
