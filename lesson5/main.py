@@ -8,23 +8,24 @@ st.write("Display Image")
 st.sidebar.write("Sidevar widgets")
 
 left_column, right_column = st.columns(2)
+left_column.button("Show Right Column")
 
 if st.sidebar.checkbox("Show Image"):
     img = Image.open("aircraft.jpg")
     st.image(img, caption="aircraft", use_column_width=True)
 
-option = st.sidebar.selectbox(
-    "Select number",
-    list(range(1, 10))
-)
+# option = st.sidebar.selectbox(
+#     "Select number",
+#     list(range(1, 10))
+# )
 
-"Your favorite number is", option
+# "Your favorite number is", option
 
-option2 = st.sidebar.text_input("Input your hobby.")
-"Your hobby is ", option2
+# option2 = st.sidebar.text_input("Input your hobby.")
+# "Your hobby is ", option2
 
-option3 = st.sidebar.slider("How are you doing?", 0, 100, 50)
-"Your condition is ", option3
+# option3 = st.sidebar.slider("How are you doing?", 0, 100, 50)
+# "Your condition is ", option3
 
 df = pd.DataFrame(
     np.random.rand(100, 2)/[50, 50] + [35.69, 139.70],
