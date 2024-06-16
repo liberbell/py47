@@ -8,8 +8,10 @@ input_date = str(days) + "mo"
 tickers = {
     "apple": "AAPL",
     "facebook": "Meta",
-    "nvidia": "NVIDIA",
+    "nvidia": "NVDA",
     "microsoft": "MSFT",
+    "google": "GOOGL",
+    "netflix": "NFLX",
 }
 
 df = pd.DataFrame()
