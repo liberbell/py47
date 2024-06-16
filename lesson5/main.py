@@ -8,7 +8,9 @@ st.write("Display Image")
 st.sidebar.write("Sidevar widgets")
 
 left_column, right_column = st.columns(2)
-left_column.button("Show Right Column")
+button = left_column.button("Show Right Column")
+if button:
+    right_column.write("This is the right column")
 
 if st.sidebar.checkbox("Show Image"):
     img = Image.open("aircraft.jpg")
