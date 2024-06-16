@@ -7,7 +7,9 @@ days = 1
 input_date = str(days) + "mo"
 tickers = {
     "apple": "AAPL",
-    "facebook": "Meta"
+    "facebook": "Meta",
+    "nvidia": "NVIDIA",
+    "microsoft": "MSFT",
 }
 
 df = pd.DataFrame()
@@ -21,6 +23,8 @@ for company in tickers.keys():
     hist.columns = [company]
     hist = hist.T
     hist.index.name = "Name"
-    pd.concat([df, hist])
+    df = pd.concat([df, hist])
+
+print(df)
 
 
