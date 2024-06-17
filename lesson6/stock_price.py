@@ -30,6 +30,6 @@ def get_data(input_date, tickers):
     
     return df
 
-print(df)
+print(get_data(input_date, tickers))
 
 
