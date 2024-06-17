@@ -38,4 +38,8 @@ data2 = data.loc[companies]
 print(data2.sort_index())
 print(data2.T.reset_index())
 
+print(data2.columns)
+# data3 = pd.melt(data2, id_vars=['Date'])
+# print(data3)
+
 
