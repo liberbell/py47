@@ -31,8 +31,11 @@ def get_data(input_date, tickers):
     
     return df
 
-print(get_data(input_date, tickers))
+# print(get_data(input_date, tickers))
 companies = ["apple", "facebook"]
 data = get_data(input_date, tickers)
 data2 = data.loc[companies]
+print(data2.sort_index())
+print(data2.T.reset_index())
+
 
