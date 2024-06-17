@@ -33,15 +33,21 @@ def get_data(input_date, tickers):
 
 # print(get_data(input_date, tickers))
 companies = ["apple", "facebook"]
-data = get_data(input_date, tickers)
-data2 = data.loc[companies]
-print(data2.sort_index())
-print(data2.T.reset_index())
 
-print(data2.columns)
-data3 = pd.melt(data2, id_vars=['Date']).rename(
-    columns = {"values": "Stock Price(USD)"}
-)
+df = get_data(input_date, tickers)
+
+data = df.loc[companies]
+print(data.sort_index())
+print(data.T.reset_index())
+
+data = pd.melt(data, id_vars=["Date"]).rename(
+        columns={"value": "Stock Price(USD)"}
+        )
+
+# print(data2.columns)
+# data3 = pd.melt(data2, id_vars=['Date']).rename(
+#     columns = {"values": "Stock Price(USD)"}
+# )
 # print(data3)
 
 
