@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import yfinance as yf
+import altair as alt
 
 appl = yf.Ticker("AAPL")
 days = 1
@@ -31,5 +32,7 @@ def get_data(input_date, tickers):
     return df
 
 print(get_data(input_date, tickers))
-
+companies = ["apple", "facebook"]
+data = get_data(input_date, tickers)
+data2 = data.loc[companies]
 
