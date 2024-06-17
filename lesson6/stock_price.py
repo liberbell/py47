@@ -14,18 +14,21 @@ tickers = {
     "netflix": "NFLX",
 }
 
-df = pd.DataFrame()
-# print(appl.history(period=f'{days}d'))
-for company in tickers.keys():
-    stock_hist = yf.Ticker(tickers[company])
-    hist = stock_hist.history(period=input_date)
+def get_data(input_date, tickers):
+    df = pd.DataFrame()
 
-    hist.index = hist.index.strftime("%d %B %Y")
-    hist = hist[['Close']]
-    hist.columns = [company]
-    hist = hist.T
-    hist.index.name = "Name"
-    df = pd.concat([df, hist])
+    for company in tickers.keys():
+        stock_hist = yf.Ticker(tickers[company])
+        hist = stock_hist.history(period=input_date)
+
+        hist.index = hist.index.strftime("%d %B %Y")
+        hist = hist[['Close']]
+        hist.columns = [company]
+        hist = hist.T
+        hist.index.name = "Name"
+        df = pd.concat([df, hist])
+    
+    return df
 
 print(df)
 
