@@ -1,11 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import yfinance as yf
+import streamlit as st
 import altair as alt
 
 appl = yf.Ticker("AAPL")
 days = 1
 input_date = str(days) + "mo"
+
 tickers = {
     "apple": "AAPL",
     "facebook": "Meta",
@@ -14,6 +16,7 @@ tickers = {
     "google": "GOOGL",
     "netflix": "NFLX",
 }
+ymin, ymax = st.sidebar.slider("Input Price Range", 0.0, 3500.0, (0.0, 3500.0))
 
 def get_data(input_date, tickers):
     df = pd.DataFrame()
@@ -43,6 +46,18 @@ print(data.T.reset_index())
 data = pd.melt(data, id_vars=["Date"]).rename(
         columns={"value": "Stock Price(USD)"}
         )
+
+chart = (
+            alt.Chart(data)
+            .mark_line(opacity=0.8, clip=True)
+            .encode(
+                x="Date:T",
+                y=alt.Y("Stock Price(USD):Q", stack=None,
+                        scale=alt.Scale(domain=[ymin, ymax])),
+                color="Name:N"
+        )
+    )
+# st.altair_chart(chart, use_container_width=True)
 
 # print(data2.columns)
 # data3 = pd.melt(data2, id_vars=['Date']).rename(
