@@ -9,7 +9,7 @@ st.sidebar.write("""
                  ## Visualize tool
                  """)
 st.sidebar.write("Select Display days")
-days = st.sidebar.slider("Days", 1, 50, 20)
+days = st.sidebar.slider("Days", 1, 5)
 
 st.write(f"""
          ### GAFA Stock Price past **{days} days**
