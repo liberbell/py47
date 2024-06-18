@@ -43,7 +43,7 @@ data = df.loc[companies]
 print(data.sort_index())
 print(data.T.reset_index())
 
-data = pd.melt(data, id_vars=["Date"]).rename(
+data = pd.melt(data).rename(
         columns={"value": "Stock Price(USD)"}
         )
 
