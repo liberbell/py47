@@ -4,6 +4,8 @@ from azure.ai.vision.imageanalysis import ImageAnalysisClient
 from azure.ai.vision.imageanalysis.models import VisualFeatures
 from azure.core.credentials import AzureKeyCredential
 
+url = "https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png"
+
 try:
     config_ini = configparser.ConfigParser()
     config_ini.read('auth.ini', encoding='utf-8')
@@ -20,11 +22,11 @@ client = ImageAnalysisClient(
     credential=AzureKeyCredential(key)
 )
 
-# result = client.analyze_from_url(
-#     image_url="https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png",
-#     visual_features=[VisualFeatures.CAPTION, VisualFeatures.READ],
-#     gender_neutral_caption=True,
-# )
+result = client.analyze_from_url(
+    image_url=url,
+    visual_features=[VisualFeatures.CAPTION, VisualFeatures.READ],
+    gender_neutral_caption=True,
+)
 
 # print(" Caption:")
 # if result.caption is not None:
