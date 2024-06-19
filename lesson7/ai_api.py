@@ -12,6 +12,7 @@ try:
 
     endpoint = config_ini['DEFAULT']['Endpoint']
     key = config_ini['DEFAULT']['Auth_key']
+    print(endpoint, key)
 except KeyError:
     print("Missing environment variable 'VISION_ENDPOINT' or 'VISION_KEY'")
     print("Set them before running this sample.")
