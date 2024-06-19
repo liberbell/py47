@@ -26,8 +26,9 @@ print("auth ok")
 
 result = client.analyze_from_url(
     image_url=url,
-    visual_features=[VisualFeatures.CAPTION, VisualFeatures.READ],
-    # gender_neutral_caption=True,
+    # visual_features=[VisualFeatures.CAPTION, VisualFeatures.READ],
+    visual_features=[VisualFeatures.READ],
+    gender_neutral_caption=True,
 )
 
 # print(" Caption:")
