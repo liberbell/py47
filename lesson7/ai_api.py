@@ -32,6 +32,7 @@ result = client.analyze_from_url(
 )
 
 print(" Caption:")
+description_result = computervision_client.describe_image(url)
 if result.caption is not None:
     print(f"   '{result.caption.text}', Confidence {result.caption.confidence:.4f}")
 
