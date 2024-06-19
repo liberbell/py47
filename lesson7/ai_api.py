@@ -4,12 +4,6 @@ from azure.ai.vision.imageanalysis import ImageAnalysisClient
 from azure.ai.vision.imageanalysis.models import VisualFeatures
 from azure.core.credentials import AzureKeyCredential
 
-
-user = config_ini['DEFAULT']['User']
-
-
-print(endpoint, auth_key)
-
 try:
     config_ini = configparser.ConfigParser()
     config_ini.read('auth.ini', encoding='utf-8')
@@ -20,3 +14,5 @@ except KeyError:
     print("Missing environment variable 'VISION_ENDPOINT' or 'VISION_KEY'")
     print("Set them before running this sample.")
     exit()
+
+print(endpoint, key)
