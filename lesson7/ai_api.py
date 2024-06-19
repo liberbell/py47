@@ -22,6 +22,7 @@ client = ImageAnalysisClient(
     endpoint=endpoint,
     credential=AzureKeyCredential(key)
 )
+print("auth ok")
 
 result = client.analyze_from_url(
     image_url=url,
