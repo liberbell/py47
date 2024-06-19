@@ -19,3 +19,9 @@ client = ImageAnalysisClient(
     endpoint=endpoint,
     credential=AzureKeyCredential(key)
 )
+
+result = client.analyze_from_url(
+    image_url="https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png",
+    visual_features=[VisualFeatures.CAPTION, VisualFeatures.READ],
+    gender_neutral_caption=True,  # Optional (default is False)
+)
