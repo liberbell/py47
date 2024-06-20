@@ -31,6 +31,9 @@ print("===== Tag an image - remote =====")
 # Call API with remote image
 tags_result_remote = computervision_client.tag_image(remote_image_url)
 
+remote_image_features = ["Categories"]
+categorize_results_remote = computervision_client.analyze_image(remote_image_url, remote_image_features)
+
 # Print results with confidence score
 print("Tags in the remote image: ")
 if (len(tags_result_remote.tags) == 0):
