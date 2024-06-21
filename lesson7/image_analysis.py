@@ -31,7 +31,7 @@ print("===== Tag an image - remote =====")
 # Call API with remote image
 tags_result_remote = computervision_client.tag_image(remote_image_url)
 
-remote_image_features = ["Categories"]
+remote_image_features = ["categories"]
 categorize_results_remote = computervision_client.analyze_image(remote_image_url, remote_image_features)
 
 # Print results with confidence score
@@ -42,5 +42,11 @@ else:
     for tag in tags_result_remote.tags:
         print("'{}' with confidence {:.2f}%".format(tag.name, tag.confidence * 100))
 print()
+
+if (len(categorize_results_remote.categories) == 0):
+    print("No categories detected.")
+else:
+    for tag in categorize_results_remote.categories:
+        print("'{}' with confidence {:.2f}%".format(category.name, tag.confidence * 100))
 
 print("End of Computer Vision quickstart.")
