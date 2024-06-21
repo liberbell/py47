@@ -51,6 +51,7 @@ if (len(categorize_results_remote.categories) == 0):
 else:
     for category in categorize_results_remote.categories:
         print("'{}' with confidence {:.2f}%".format(category.name, category.score * 100))
+print()
 
 print("Detect objects in the remote image: ")
 if (len(detect_objects_result_remote.objects) == 0):
