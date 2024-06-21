@@ -34,7 +34,8 @@ tags_result_remote = computervision_client.tag_image(remote_image_url)
 remote_image_features = ["categories"]
 categorize_results_remote = computervision_client.analyze_image(remote_image_url, remote_image_features)
 
-detect_objects_result_remote = computervision_client.detect_objects(remote_image_url)
+detect_object_image_url = "https://learn.microsoft.com/ja-jp/azure/ai-services/computer-vision/images/tagging.png"
+detect_objects_result_remote = computervision_client.detect_objects(detect_object_image_url)
 
 # Print results with confidence score
 print("Tags in the remote image: ")
