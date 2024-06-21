@@ -46,7 +46,7 @@ print()
 if (len(categorize_results_remote.categories) == 0):
     print("No categories detected.")
 else:
-    for tag in categorize_results_remote.categories:
-        print("'{}' with confidence {:.2f}%".format(category.name, tag.confidence * 100))
+    for category in categorize_results_remote.categories:
+        print("'{}' with confidence {:.2f}%".format(category.name, category.score * 100))
 
 print("End of Computer Vision quickstart.")
