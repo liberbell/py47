@@ -57,6 +57,9 @@ if (len(detect_objects_result_remote.objects) == 0):
     print("No object detected.")
 else:
     for object in detect_objects_result_remote.objects:
-        print("object location {} {} {} {} ")
+        print("object location {} {} {} {}".format( \
+            object.rectangle.x, object.rectangle.x + object.rectangle.w, \
+            object.rectangle.y, object.rectangle.y + object.rectangle.h
+        ))
 
 print("End of Computer Vision quickstart.")
