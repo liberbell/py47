@@ -55,7 +55,9 @@ def get_tags(filepath):
     for tag in tags:
         tags_name.append(tag.name)
 
-    print(tags_name)
+    return tags_name
+
+    # print(tags_name)
 
 # Print results with confidence score
 # print("Tags in the remote image: ")
@@ -85,14 +87,15 @@ def get_tags(filepath):
 #         ))
 # print()
 
-print("Detect objects in the local image: ")
-if (len(detect_objects_result.objects) == 0):
-    print("No object detected.")
-else:
-    for object in detect_objects_result.objects:
-        print("object location {} {} {} {}".format( \
-            object.rectangle.x, object.rectangle.x + object.rectangle.w, \
-            object.rectangle.y, object.rectangle.y + object.rectangle.h
-        ))
+# print("Detect objects in the local image: ")
+# if (len(detect_objects_result.objects) == 0):
+#     print("No object detected.")
+# else:
+#     for object in detect_objects_result.objects:
+#         print("object location {} {} {} {}".format( \
+#             object.rectangle.x, object.rectangle.x + object.rectangle.w, \
+#             object.rectangle.y, object.rectangle.y + object.rectangle.h
+        # ))
+print(get_tags(local_image_path))
 
 print("End of Computer Vision quickstart.")
