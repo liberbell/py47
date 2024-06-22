@@ -44,15 +44,18 @@ local_image = open(local_image_path, "rb")
 detect_objects_result = computervision_client.detect_objects_in_stream(local_image)
 
 # local_image = open(local_image_path, "rb")
-time.sleep(0.3)
-tags_result = computervision_client.tag_image_in_stream(local_image)
-tags = tags_result.tags
+time.sleep(1)
 
-tags_name = []
-for tag in tags:
-    tags_name.append(tag.name)
+def get_tags(filepath):
+    local_image = open(filepath, "rb")
+    tags_result = computervision_client.tag_image_in_stream(local_image)
+    tags = tags_result.tags
 
-print(tags_name)
+    tags_name = []
+    for tag in tags:
+        tags_name.append(tag.name)
+
+    print(tags_name)
 
 # Print results with confidence score
 # print("Tags in the remote image: ")
