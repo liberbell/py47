@@ -19,3 +19,25 @@ try:
 except KeyError:
     print("Missing environment variable 'VISION_ENDPOINT' or 'VISION_KEY'")
     exit()
+
+computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
+
+images_folder = os.path.join (os.path.dirname(os.path.abspath(__file__)), "img")
+local_image_path = os.path.join (images_folder, "sample01.jpg")
+
+def detect_objects(filepath):
+    local_image = open(filepath, "rb")
+    detect_objects = computervision_client.detect_objects_in_stream(local_image)
+
+    return detect_objects
+
+def get_tags(filepath):
+    local_image = open(filepath, "rb")
+    tags_result = computervision_client.tag_image_in_stream(local_image)
+    tags = tags_result.tags
+
+    tags_name = []
+    for tag in tags:
+        tags_name.append(tag.name)
+
+    return tags_name
