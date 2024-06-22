@@ -40,11 +40,11 @@ computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredenti
 print("===== Tag an image - local =====")
 images_folder = os.path.join (os.path.dirname(os.path.abspath(__file__)), "img")
 local_image_path = os.path.join (images_folder, "sample01.jpg")
-local_image = open(local_image_path, "rb")
-detect_objects_result = computervision_client.detect_objects_in_stream(local_image)
+def get_object(filepath):
+    local_image = open(filepath, "rb")
+    detect_objects_result = computervision_client.detect_objects_in_stream(local_image)
 
 # local_image = open(local_image_path, "rb")
-time.sleep(1)
 
 def get_tags(filepath):
     local_image = open(filepath, "rb")
