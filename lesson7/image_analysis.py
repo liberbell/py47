@@ -99,6 +99,7 @@ def get_tags(filepath):
 #             object.rectangle.y, object.rectangle.y + object.rectangle.h
         # ))
 print(get_tags(local_image_path))
-print(detect_objects(local_image_path))
+objects = detect_objects(local_image_path)
+print(type(objects))
 
 print("End of Computer Vision quickstart.")
