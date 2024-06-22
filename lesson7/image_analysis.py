@@ -24,51 +24,52 @@ except KeyError:
 
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
-images_folder = os.path.join (os.path.dirname(os.path.abspath(__file__)), "images")
-remote_image_url = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/landmark.jpg"
+# imagess_folder = os.path.join (os.path.dirname(os.path.abspath(__file__)), "images")
+# remote_image_url = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/landmark.jpg"
 
-print("===== Tag an image - remote =====")
-# Call API with remote image
-tags_result_remote = computervision_client.tag_image(remote_image_url)
+# print("===== Tag an image - remote =====")
+# # Call API with remote image
+# tags_result_remote = computervision_client.tag_image(remote_image_url)
 
-remote_image_features = ["categories"]
-categorize_results_remote = computervision_client.analyze_image(remote_image_url, remote_image_features)
+# remote_image_features = ["categories"]
+# categorize_results_remote = computervision_client.analyze_image(remote_image_url, remote_image_features)
 
-detect_object_image_url = "https://learn.microsoft.com/ja-jp/azure/ai-services/computer-vision/images/tagging.png"
-detect_objects_result_remote = computervision_client.detect_objects(detect_object_image_url)
+# detect_object_image_url = "https://learn.microsoft.com/ja-jp/azure/ai-services/computer-vision/images/tagging.png"
+# detect_objects_result_remote = computervision_client.detect_objects(detect_object_image_url)
 
+print("===== Tag an image - local =====")
 images_folder = os.path.join (os.path.dirname(os.path.abspath(__file__)), "img")
 local_image_path = os.path.join (images_folder, "sample01.jpg")
 local_image = open(local_image_path, "rb")
 detect_objects_result = computervision_client.detect_objects_in_stream(local_image)
 
 # Print results with confidence score
-print("Tags in the remote image: ")
-if (len(tags_result_remote.tags) == 0):
-    print("No tags detected.")
-else:
-    for tag in tags_result_remote.tags:
-        print("'{}' with confidence {:.2f}%".format(tag.name, tag.confidence * 100))
-print()
+# print("Tags in the remote image: ")
+# if (len(tags_result_remote.tags) == 0):
+#     print("No tags detected.")
+# else:
+#     for tag in tags_result_remote.tags:
+#         print("'{}' with confidence {:.2f}%".format(tag.name, tag.confidence * 100))
+# print()
 
-print("Detect categories in the remote image: ")
-if (len(categorize_results_remote.categories) == 0):
-    print("No categories detected.")
-else:
-    for category in categorize_results_remote.categories:
-        print("'{}' with confidence {:.2f}%".format(category.name, category.score * 100))
-print()
+# print("Detect categories in the remote image: ")
+# if (len(categorize_results_remote.categories) == 0):
+#     print("No categories detected.")
+# else:
+#     for category in categorize_results_remote.categories:
+#         print("'{}' with confidence {:.2f}%".format(category.name, category.score * 100))
+# print()
 
-print("Detect objects in the remote image: ")
-if (len(detect_objects_result_remote.objects) == 0):
-    print("No object detected.")
-else:
-    for object in detect_objects_result_remote.objects:
-        print("object location {} {} {} {}".format( \
-            object.rectangle.x, object.rectangle.x + object.rectangle.w, \
-            object.rectangle.y, object.rectangle.y + object.rectangle.h
-        ))
-print()
+# print("Detect objects in the remote image: ")
+# if (len(detect_objects_result_remote.objects) == 0):
+#     print("No object detected.")
+# else:
+#     for object in detect_objects_result_remote.objects:
+#         print("object location {} {} {} {}".format( \
+#             object.rectangle.x, object.rectangle.x + object.rectangle.w, \
+#             object.rectangle.y, object.rectangle.y + object.rectangle.h
+#         ))
+# print()
 
 print("Detect objects in the local image: ")
 if (len(detect_objects_result.objects) == 0):
