@@ -41,16 +41,17 @@ print("===== Tag an image - local =====")
 images_folder = os.path.join (os.path.dirname(os.path.abspath(__file__)), "img")
 local_image_path = os.path.join (images_folder, "sample01.jpg")
 local_image = open(local_image_path, "rb")
-# detect_objects_result = computervision_client.detect_objects_in_stream(local_image)
+detect_objects_result = computervision_client.detect_objects_in_stream(local_image)
 
+local_image = open(local_image_path, "rb")
 tags_result = computervision_client.tag_image_in_stream(local_image)
-# tags = tags_result.tags
+tags = tags_result.tags
 
-# tags_name = []
-# for tag in tags:
-#     tags_name.append(tag.name)
+tags_name = []
+for tag in tags:
+    tags_name.append(tag.name)
 
-# print(tags_name)
+print(tags_name)
 
 # Print results with confidence score
 # print("Tags in the remote image: ")
@@ -80,14 +81,14 @@ tags_result = computervision_client.tag_image_in_stream(local_image)
 #         ))
 # print()
 
-# print("Detect objects in the local image: ")
-# if (len(detect_objects_result.objects) == 0):
-#     print("No object detected.")
-# else:
-#     for object in detect_objects_result.objects:
-#         print("object location {} {} {} {}".format( \
-#             object.rectangle.x, object.rectangle.x + object.rectangle.w, \
-#             object.rectangle.y, object.rectangle.y + object.rectangle.h
-#         ))
+print("Detect objects in the local image: ")
+if (len(detect_objects_result.objects) == 0):
+    print("No object detected.")
+else:
+    for object in detect_objects_result.objects:
+        print("object location {} {} {} {}".format( \
+            object.rectangle.x, object.rectangle.x + object.rectangle.w, \
+            object.rectangle.y, object.rectangle.y + object.rectangle.h
+        ))
 
 print("End of Computer Vision quickstart.")
