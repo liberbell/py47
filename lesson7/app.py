@@ -55,7 +55,7 @@ if uploaded_file is not None:
     print(objects)
 
     drawing_picture = ImageDraw.Draw(img)
-    for object in objects:
+    for object in objects.objects:
         x = object.rectangle.x
         y = object.rectangle.y
         w = object.rectangle.w
