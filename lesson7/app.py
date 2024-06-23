@@ -63,7 +63,8 @@ if uploaded_file is not None:
         caption = object.object_property
 
         font = ImageFont.truetype("./Helvetica 400.ttf", size=50)
-        drawing_picture.textbbox(caption, font=font)
+        tl = (x, y)
+        a, b, c, d = drawing_picture.textbbox(tl, caption, font=font)
 
         drawing_picture.rectangle([(x, y), (x + w, y + h)], fill=None, outline="green", width=5)
     st.image(img)
