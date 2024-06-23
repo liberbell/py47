@@ -46,3 +46,6 @@ def get_tags(filepath):
 st.title("Detect objects application")
 
 uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png"])
+if uploaded_file is not None:
+    img = Image.open(uploaded_file)
+    st.image(img)
