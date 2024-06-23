@@ -73,4 +73,6 @@ if uploaded_file is not None:
 
     st.markdown("Recognized object tags")
     # st.markdown("> apple, tree, building, green")
-    st.markdown(caption)
+    for object in objects.objects:
+        caption = object.object_property
+        st.markdown(caption)
