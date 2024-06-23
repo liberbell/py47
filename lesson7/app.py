@@ -9,6 +9,7 @@ import os
 from PIL import Image
 import sys
 import time
+import streamlit as st
 
 try:
     config_ini = configparser.ConfigParser()
@@ -41,3 +42,5 @@ def get_tags(filepath):
         tags_name.append(tag.name)
 
     return tags_name
+
+st.title("Detect objects application")
