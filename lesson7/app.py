@@ -29,7 +29,7 @@ local_image_path = os.path.join (images_folder, "sample01.jpg")
 
 def detect_objects(filepath):
     local_image = open(filepath, "rb")
-    detect_objects = computervision_client.detect_objects_in_stream(local_image)
+    detect_objects = computervision_client.detect_objects_in_stream(local_image, as_dict=True)
 
     return detect_objects
 
@@ -52,7 +52,7 @@ if uploaded_file is not None:
     img_path = f"temp/{uploaded_file.name}"
     img.save(img_path)
     objects = detect_objects(img_path)
-    print(objects.additional_properties)
+    print(objects)
 
     drawing_picture = ImageDraw.Draw(img)
     # for object in objects:
@@ -60,7 +60,7 @@ if uploaded_file is not None:
     #     y = object.rectangle.y
     #     w = object.rectangle.w
     #     h = object.rectangle.h
-    #     caption = object.object
+    #     caption = object.object_property
 
     #     drawing_picture.rectangle([(x, y), (x + w, y + h)], fill=None, outline="green", width=5)
     st.image(img)
