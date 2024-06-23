@@ -10,6 +10,7 @@ from PIL import Image
 import sys
 import time
 import streamlit as st
+from PIL import ImageDraw, ImageFont
 
 try:
     config_ini = configparser.ConfigParser()
@@ -50,6 +51,14 @@ if uploaded_file is not None:
     img = Image.open(uploaded_file)
     img_path = f"temp/{uploaded_file.name}"
     img.save(img_path)
+    objects = detect_objects(img_path)
+
+    drawing_picture = ImageDraw.Draw(img)
+    for object in objects:
+        x = object.rectangle.x
+        y = object.rectangle.y
+        w = object.rectangle.w
+        h = object.rectangle.h
     st.image(img)
 
     st.markdown("Recognized object tags")
