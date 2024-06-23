@@ -52,7 +52,7 @@ if uploaded_file is not None:
     img_path = f"temp/{uploaded_file.name}"
     img.save(img_path)
     objects = detect_objects(img_path)
-    print(objects.objects)
+    # print(objects.objects)
 
     drawing_picture = ImageDraw.Draw(img)
     for object in objects.objects:
@@ -61,6 +61,9 @@ if uploaded_file is not None:
         w = object.rectangle.w
         h = object.rectangle.h
         caption = object.object_property
+
+        font = ImageFont.truetype("./Helvetica 400.ttf", size=50)
+        drawing_picture.textbbox(caption, font=font)
 
         drawing_picture.rectangle([(x, y), (x + w, y + h)], fill=None, outline="green", width=5)
     st.image(img)
