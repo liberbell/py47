@@ -55,14 +55,14 @@ if uploaded_file is not None:
     print(objects)
 
     drawing_picture = ImageDraw.Draw(img)
-    # for object in objects:
-    #     x = object.rectangle.x
-    #     y = object.rectangle.y
-    #     w = object.rectangle.w
-    #     h = object.rectangle.h
-    #     caption = object.object_property
+    for object in objects:
+        x = object.rectangle.x
+        y = object.rectangle.y
+        w = object.rectangle.w
+        h = object.rectangle.h
+        caption = object.object_property
 
-    #     drawing_picture.rectangle([(x, y), (x + w, y + h)], fill=None, outline="green", width=5)
+        drawing_picture.rectangle([(x, y), (x + w, y + h)], fill=None, outline="green", width=5)
     st.image(img)
 
     st.markdown("Recognized object tags")
