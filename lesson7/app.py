@@ -49,6 +49,7 @@ uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png"])
 if uploaded_file is not None:
     img = Image.open(uploaded_file)
     img_path = f"temp/{uploaded_file.name}"
+    img.save(img_path)
     st.image(img)
 
     st.markdown("Recognized object tags")
