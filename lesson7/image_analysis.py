@@ -40,11 +40,11 @@ computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredenti
 print("===== Tag an image - local =====")
 images_folder = os.path.join (os.path.dirname(os.path.abspath(__file__)), "img")
 local_image_path = os.path.join (images_folder, "sample01.jpg")
-def detect_objects(filepath):
-    local_image = open(filepath, "rb")
-    detect_objects = computervision_client.detect_objects_in_stream(local_image)
 
-    return detect_objects
+local_image = open(filepath, "rb")
+detect_object_result = computervision_client.detect_objects_in_stream(local_image)
+
+# return detect_objects
 
 # local_image = open(local_image_path, "rb")
 
@@ -89,17 +89,17 @@ def get_tags(filepath):
 #         ))
 # print()
 
-# print("Detect objects in the local image: ")
-# if (len(detect_objects_result.objects) == 0):
-#     print("No object detected.")
-# else:
-#     for object in detect_objects_result.objects:
-#         print("object location {} {} {} {}".format( \
-#             object.rectangle.x, object.rectangle.x + object.rectangle.w, \
-#             object.rectangle.y, object.rectangle.y + object.rectangle.h
-        # ))
+print("Detect objects in the local image: ")
+if (len(detect_object_result.objects) == 0):
+    print("No object detected.")
+else:
+    for object in detect_object_result.objects:
+        print("object location {} {} {} {}".format( \
+            object.rectangle.x, object.rectangle.x + object.rectangle.w, \
+            object.rectangle.y, object.rectangle.y + object.rectangle.h
+        ))
 print(get_tags(local_image_path))
-objects = detect_objects(local_image_path)
-print(type(objects))
+# objects = detect_objects(local_image_path)
+# print(type(objects))
 
 print("End of Computer Vision quickstart.")
