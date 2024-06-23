@@ -48,6 +48,8 @@ st.title("Detect objects application")
 uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png"])
 if uploaded_file is not None:
     img = Image.open(uploaded_file)
+    img_path = f"temp/{uploaded_file.name}"
     st.image(img)
+
     st.markdown("Recognized object tags")
     st.markdown("> apple, tree, building, green")
