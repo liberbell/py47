@@ -72,4 +72,5 @@ if uploaded_file is not None:
     st.image(img)
 
     st.markdown("Recognized object tags")
-    st.markdown("> apple, tree, building, green")
+    # st.markdown("> apple, tree, building, green")
+    st.markdown(caption)
