@@ -52,7 +52,7 @@ if uploaded_file is not None:
     img_path = f"temp/{uploaded_file.name}"
     img.save(img_path)
     objects = detect_objects(img_path)
-    print(objects)
+    print(objects.objects)
 
     drawing_picture = ImageDraw.Draw(img)
     for object in objects.objects:
