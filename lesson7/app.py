@@ -44,3 +44,5 @@ def get_tags(filepath):
     return tags_name
 
 st.title("Detect objects application")
+
+uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png"])
