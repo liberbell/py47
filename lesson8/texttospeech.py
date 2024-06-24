@@ -25,5 +25,5 @@ response = client.synthesize_speech(
 #     print(f'Audio content written to file "{filename}"')
 
 pygame.mixer.init()
-pygame.mixer.music.load(response)
+pygame.mixer.music.load(response.audio_content)
 pygame.mixer.music.play()
