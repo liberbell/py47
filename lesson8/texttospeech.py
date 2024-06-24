@@ -29,8 +29,8 @@ pygame.mixer.music.load(filename)
 pygame.mixer.music.play()
 
 gender_type = {
-    "default": "SSML_VOICE_GENDER_UNSPECIFIED"
-    "male": "MALE",
-    "female": "FEMALE",
-    "neutral": "NEUTRAL",
+    "default": texttospeech.SsmlVoiceGender.SSML_VOICE_GENDER_UNSPECIFIED,
+    "male": texttospeech.SsmlVoiceGender.MALE,
+    "female": texttospeech.SsmlVoiceGender.FEMALE,
+    "neutral": texttospeech.SsmlVoiceGender.NEUTRAL,
 }
