@@ -4,7 +4,7 @@ from google.cloud import texttospeech
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "secret.json"
 
 client = texttospeech.TextToSpeechClient()
-synthesis_input = texttospeech.SynthesisInput(text="Hello, World!")
+synthesis_input = texttospeech.SynthesisInput(text="We are the champion!")
 
 voice = texttospeech.VoiceSelectionParams(
     language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
