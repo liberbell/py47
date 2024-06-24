@@ -19,11 +19,11 @@ response = client.synthesize_speech(
     input=synthesis_input, voice=voice, audio_config=audio_config
 )
 
-# filename = "output1.mp3"
-# with open(filename, "wb") as out:
-#     out.write(response.audio_content)
-#     print(f'Audio content written to file "{filename}"')
+filename = "output2.mp3"
+with open(filename, "wb") as out:
+    out.write(response.audio_content)
+    print(f'Audio content written to file "{filename}"')
 
 pygame.mixer.init()
-pygame.mixer.music.load(response.audio_content)
+pygame.mixer.music.load(filename)
 pygame.mixer.music.play()
