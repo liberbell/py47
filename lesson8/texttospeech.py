@@ -1,10 +1,7 @@
 import os
-
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "secret.json"
-
-
 from google.cloud import texttospeech
 
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "secret.json"
 
 client = texttospeech.TextToSpeechClient()
 synthesis_input = texttospeech.SynthesisInput(text="Hello, World!")
@@ -21,6 +18,7 @@ response = client.synthesize_speech(
     input=synthesis_input, voice=voice, audio_config=audio_config
 )
 
-with open("output.mp3", "wb") as out:
+filename = "output1.mp3"
+with open(filename, "wb") as out:
     out.write(response.audio_content)
-    print('Audio content written to file "output.mp3"')
+    print(f'Audio content written to file "{filename}"')
