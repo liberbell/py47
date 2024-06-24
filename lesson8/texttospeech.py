@@ -8,7 +8,7 @@ client = texttospeech.TextToSpeechClient()
 synthesis_input = texttospeech.SynthesisInput(text="私がチャンピオンだ。")
 
 voice = texttospeech.VoiceSelectionParams(
-    language_code="ja-JP", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+    language_code="ja-JP", ssml_gender=texttospeech.SsmlVoiceGender.MALE
 )
 
 audio_config = texttospeech.AudioConfig(
@@ -27,3 +27,10 @@ with open(filename, "wb") as out:
 pygame.mixer.init()
 pygame.mixer.music.load(filename)
 pygame.mixer.music.play()
+
+gender_type = {
+    "default": "SSML_VOICE_GENDER_UNSPECIFIED"
+    "male": "MALE",
+    "female": "FEMALE",
+    "neutral": "NEUTRAL",
+}
