@@ -24,9 +24,9 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "secret.json"
 #     out.write(response.audio_content)
 #     print(f'Audio content written to file "{filename}"')
 
-pygame.mixer.init()
-pygame.mixer.music.load(filename)
-pygame.mixer.music.play()
+# pygame.mixer.init()
+# pygame.mixer.music.load(filename)
+# pygame.mixer.music.play()
 
 gender_type = {
     "default": texttospeech.SsmlVoiceGender.SSML_VOICE_GENDER_UNSPECIFIED,
