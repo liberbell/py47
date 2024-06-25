@@ -36,6 +36,12 @@ gender_type = {
 }
 gender = "default"
 
+languages = {
+    "Japanese": "ja-JP",
+    "English" : "en-US",
+    }
+language = "Japanese"
+
 client = texttospeech.TextToSpeechClient()
 synthesis_input = texttospeech.SynthesisInput(text="私がチャンピオンだ。")
 
