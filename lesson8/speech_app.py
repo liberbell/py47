@@ -34,10 +34,10 @@ def synthesize_speech(text_input, language="Japanese", gender="default"):
     return response
 
 language = "Japanese"
-text_input = "私がチャンピオンだ。"
+text = "私がチャンピオンだ。"
 gender = "default"
 
-response = synthesize_speech(text_input, gender="male")
+response = synthesize_speech(text, gender="male")
 filename = "output3.mp3"
 with open(filename, "wb") as out:
     out.write(response.audio_content)
