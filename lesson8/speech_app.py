@@ -4,7 +4,7 @@ import pygame
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "secret.json"
 
-def synthesize_speech(text, language="Japanese", gender="default"):
+def synthesize_speech(text_input, language="Japanese", gender="default"):
     gender_type = {
     "default": texttospeech.SsmlVoiceGender.SSML_VOICE_GENDER_UNSPECIFIED,
     "male": texttospeech.SsmlVoiceGender.MALE,
