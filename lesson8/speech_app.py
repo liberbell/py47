@@ -18,7 +18,7 @@ def synthesize_speech(text_input, language="Japanese", gender="default"):
     }
 
     client = texttospeech.TextToSpeechClient()
-    synthesis_input = texttospeech.SynthesisInput(text_input)
+    synthesis_input = texttospeech.SynthesisInput(text=text_input)
 
     voice = texttospeech.VoiceSelectionParams(
         language_code=languages[language], ssml_gender=gender_type[gender]
