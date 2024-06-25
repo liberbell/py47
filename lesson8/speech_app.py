@@ -32,3 +32,13 @@ def synthesize_speech(text, language="Japanese", gender="default"):
         input=synthesis_input, voice=voice, audio_config=audio_config
     )
     return response
+
+language = "Japanese"
+text_input = "私がチャンピオンだ。"
+gender = "default"
+
+response = synthesize_speech(text_input, gender="male")
+filename = "output3.mp3"
+with open(filename, "wb") as out:
+    out.write(response.audio_content)
+    print(f'Audio content written to file "{filename}"')
