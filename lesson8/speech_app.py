@@ -37,7 +37,7 @@ language = "English"
 text = "Today is the dog days."
 gender = "default"
 
-response = synthesize_speech(text, gender="female")
+response = synthesize_speech(text, language, gender="female")
 filename = "output4.mp3"
 with open(filename, "wb") as out:
     out.write(response.audio_content)
