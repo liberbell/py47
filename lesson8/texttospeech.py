@@ -42,8 +42,10 @@ languages = {
     }
 language = "Japanese"
 
+text_input = "私がチャンピオンだ。"
+
 client = texttospeech.TextToSpeechClient()
-synthesis_input = texttospeech.SynthesisInput(text="私がチャンピオンだ。")
+synthesis_input = texttospeech.SynthesisInput(text_input)
 
 voice = texttospeech.VoiceSelectionParams(
     language_code=language, ssml_gender=gender_type[gender]
