@@ -54,4 +54,6 @@ input_option = st.selectbox(
 
 input_data = None
 if input_option == "Input text":
-    input_data = st.text_area("Input text here")
+    input_data = st.text_area("Text for speech", "Input text here")
+else:
+    st.file_uploader("Select Text file", ["txt"])
