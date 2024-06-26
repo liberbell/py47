@@ -56,4 +56,7 @@ input_data = None
 if input_option == "Input text":
     input_data = st.text_area("Text for speech", "Input text here")
 else:
-    st.file_uploader("Select Text file", ["txt"])
+    uploaded_file = st.file_uploader("Select Text file", ["txt"])
+    if uploaded_file is not None:
+        content = uploaded_file.read()
+        input_data = content.decode()
