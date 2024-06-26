@@ -47,7 +47,9 @@ def synthesize_speech(text_input, language="Japanese", gender="default"):
 st.title("Speech application")
 st.markdown("### Data input")
 
-st.selectbox(
+input_option = st.selectbox(
     "Select input data",
-    ("Inpurt text", "Select input file")
+    ("Inpurt text", "Select Text file")
 )
+
+input_data = None
