@@ -45,3 +45,9 @@ def synthesize_speech(text_input, language="Japanese", gender="default"):
 #     print(f'Audio content written to file "{filename}"')
 
 st.title("Speech application")
+st.markdown("### Data input")
+
+st.selectbox(
+    "Select input data",
+    ("Inpurt text", "Select input file")
+)
