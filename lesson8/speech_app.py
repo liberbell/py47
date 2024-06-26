@@ -49,7 +49,9 @@ st.markdown("### Data input")
 
 input_option = st.selectbox(
     "Select input data",
-    ("Inpurt text", "Select Text file")
+    ("Input text", "Select Text file")
 )
 
 input_data = None
+if input_option == "Input text":
+    input_data = st.text_area("Input text here")
