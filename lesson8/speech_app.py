@@ -77,5 +77,8 @@ if input_data is not None:
         ("default", "male", "female", "neutral")
     )
 
-    st.subheader("### Speech generate")
+    st.markdown("### Speech generate")
     st.write("Do you want to generate this sentence?")
+    if st.button("Generate"):
+        comment = st.empty()
+        comment.write("Starting generate to speech")
