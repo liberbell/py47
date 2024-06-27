@@ -62,5 +62,7 @@ else:
         input_data = content.decode()
 
 if input_data is not None:
-    st.write("Input data")
+    st.write("## Input data")
     st.write(input_data)
+    st.markdown("### Parameter settings")
+    st.subheader("Language and speeker settings")
