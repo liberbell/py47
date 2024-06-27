@@ -83,3 +83,5 @@ if input_data is not None:
         comment = st.empty()
         comment.write("Starting generate to speech")
         response = synthesize_speech(input_data, lang=lang, gender=gender)
+        st.audio(response.audio_content)
+        comment.write("Speech generated")
