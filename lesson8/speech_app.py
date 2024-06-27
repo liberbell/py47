@@ -60,3 +60,7 @@ else:
     if uploaded_file is not None:
         content = uploaded_file.read()
         input_data = content.decode()
+
+if input_data is not None:
+    st.write("Input data")
+    st.write(input_data)
