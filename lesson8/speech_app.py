@@ -34,16 +34,6 @@ def synthesize_speech(text_input, language="Japanese", gender="default"):
     )
     return response
 
-# language = "English"
-# text = "Today is the dog days."
-# gender = "default"
-
-# response = synthesize_speech(text, language, gender="female")
-# filename = "output4.mp3"
-# with open(filename, "wb") as out:
-#     out.write(response.audio_content)
-#     print(f'Audio content written to file "{filename}"')
-
 st.title("Speech application")
 st.markdown("### Data input")
 
@@ -82,6 +72,6 @@ if input_data is not None:
     if st.button("Generate"):
         comment = st.empty()
         comment.write("Starting generate to speech")
-        response = synthesize_speech(input_data, lang=lang, gender=gender)
+        response = synthesize_speech(input_data, language=lang, gender=gender)
         st.audio(response.audio_content)
         comment.write("Speech generated")
