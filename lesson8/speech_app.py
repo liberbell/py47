@@ -65,4 +65,9 @@ if input_data is not None:
     st.write("## Input data")
     st.write(input_data)
     st.markdown("### Parameter settings")
-    st.subheader("Language and speeker settings")
+    st.subheader("Language and speech gender settings")
+
+    lang = st.selectbox(
+        "Select language",
+        ("Japanese", "English")
+    )
