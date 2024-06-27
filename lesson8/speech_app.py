@@ -82,4 +82,4 @@ if input_data is not None:
     if st.button("Generate"):
         comment = st.empty()
         comment.write("Starting generate to speech")
-        response = synthesize_speech(input_data, lang, gender=gender)
+        response = synthesize_speech(input_data, lang=lang, gender=gender)
