@@ -71,3 +71,11 @@ if input_data is not None:
         "Select language",
         ("Japanese", "English")
     )
+
+    gender = st.selectbox(
+        "Select gender",
+        ("default", "male", "female", "neutral")
+    )
+
+    st.subheader("### Speech generate")
+    st.write("Do you want to generate this sentence?")
