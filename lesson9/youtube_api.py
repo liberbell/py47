@@ -15,13 +15,13 @@ def main():
 
     # Get credentials and create an API client
     flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
-        client_secrets_file, scopes)
+        client_secrets_file)
     credentials = flow.run_console()
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, credentials=credentials)
 
     request = youtube.search().list(
-        part="snippet",
+        part="id,snippet",
         maxResults=25,
         q="surfing"
     )
