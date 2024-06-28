@@ -1,8 +1,8 @@
 import os
 
-# import google_auth_oauthlib.flow
-from googleapiclient.discovery import build
-# import googleapiclient.errors
+import google_auth_oauthlib.flow
+import googleapiclient.discovery
+import googleapiclient.errors
 
 scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
 
