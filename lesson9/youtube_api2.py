@@ -20,3 +20,4 @@ request = youtube.search().list(
     q=q
 )
 response = request.execute()
+print(response)
