@@ -13,9 +13,10 @@ youtube = build(api_service_name, api_version, developerKey=api_developer_key)
 q = "Python"
 max_result = 50
 
-response = youtube.search().list(
+request = youtube.search().list(
     part="id,snippet",
     maxResults=max_result,
     # q="surfing"
     q=q
 )
+response = request.execute()
