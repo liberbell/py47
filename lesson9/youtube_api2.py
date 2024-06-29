@@ -23,7 +23,11 @@ request = youtube.search().list(
 response = request.execute()
 
 items = response["items"]
+items_id = []
 for item in items:
     item_id = {}
     item_id["video_id"] = item["id"]["videoId"]
     item_id["channel_id"] = item["snippet"]["channelId"]
+    items_id.append(item_id)
+
+print(items_id)
