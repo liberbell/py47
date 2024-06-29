@@ -11,13 +11,14 @@ api_developer_key = secret["KEY"]
 youtube = build(api_service_name, api_version, developerKey=api_developer_key)
 
 q = "Python"
-max_result = 50
+max_result = 5
 
 request = youtube.search().list(
     part="id,snippet",
     maxResults=max_result,
-    # q="surfing"
-    q=q
+    q=q,
+    order="viewCount",
+    type="video"
 )
 response = request.execute()
 print(response)
