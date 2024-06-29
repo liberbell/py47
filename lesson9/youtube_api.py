@@ -19,11 +19,14 @@ def main():
     credentials = flow.run_console()
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, credentials=credentials)
+    
+    max_result = 50
 
     request = youtube.search().list(
         part="id,snippet",
-        maxResults=25,
-        q="surfing"
+        maxResults=max_result,
+        # q="surfing"
+        q=q
     )
     response = request.execute()
 
