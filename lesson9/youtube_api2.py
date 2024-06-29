@@ -21,4 +21,6 @@ request = youtube.search().list(
     type="video"
 )
 response = request.execute()
-print(response)
+items = response["items"]
+item = items[0]
+print(item["id"]["videoId"])
