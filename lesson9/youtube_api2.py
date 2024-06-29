@@ -24,3 +24,4 @@ response = request.execute()
 items = response["items"]
 item = items[0]
 print(item["id"]["videoId"])
+print(item["snippet"]["channelId"])
