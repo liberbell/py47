@@ -38,10 +38,9 @@ print(df_video["channel_id"].unique().tolist())
 channel_ids = df_video["channel_id"].unique().tolist()
 print(",".join(channel_ids))
 
-# request = youtube.channels().list(
-#         part="statistics",
-#         id=""
-#         maxResults=max_result,
-#         order="viewCount",
-#         type="video"
-#     )
+request = youtube.channels().list(
+        part="statistics",
+        id=",".join(channel_ids),
+        fields="items(id, statistics(subscriberCount))"
+    )
+response = request.execute()
