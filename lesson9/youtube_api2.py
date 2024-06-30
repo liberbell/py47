@@ -47,7 +47,7 @@ subscribers_list = response.execute()
 # print(subscribers["items"][:5])
 
 subscribers = []
-for item in subscribers["items"]:
+for item in subscribers_list["items"]:
     print(item)
     subscriber = {}
     subscriber["channel_id"] = item["id"]
