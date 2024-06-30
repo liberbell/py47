@@ -70,4 +70,9 @@ videos_response = youtube.videos().list(
         fields="items(id, snippet(title), statistics(viewCount))"
     )
 videos_details = videos_response.execute()
-print(videos_details)
+print(videos_details["items"])
+
+items = videos_details["items"]
+for item in items:
+    video_info = {}
+    video_info["video_id"] = item["id"]
