@@ -66,7 +66,8 @@ df_extracted = df_videosubscribe[df_videosubscribe["subscriber_count"] < 10000]
 video_ids = df_extracted["video_id"].tolist()
 videos_response = youtube.videos().list(
         part="snippet, statistics",
-        id=",".join(channel_ids),
+        id=",".join(video_ids),
         fields="items(id, snippet(title), statistics(viewCount))"
     )
-subscribers_list = videos_response.execute()
+videos_details = videos_response.execute()
+print(videos_details)
