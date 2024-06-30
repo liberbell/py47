@@ -51,7 +51,7 @@ for item in subscribers_list["items"]:
     # print(item)
     subscriber = {}
     subscriber["channel_id"] = item["id"]
-    subscriber["subscriber_count"] = item["statistics"]["subscriberCount"]
+    subscriber["subscriber_count"] = int(item["statistics"]["subscriberCount"])
     subscribers.append(subscriber)
 
 df_subscribers = pd.DataFrame(subscribers)
