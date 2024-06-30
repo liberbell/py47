@@ -1,5 +1,6 @@
 import json
 from googleapiclient.discovery import build
+import pandas as pd
 
 with open("secret.json") as target:
     secret = json.load(target)
@@ -30,4 +31,7 @@ for item in items:
     item_id["channel_id"] = item["snippet"]["channelId"]
     items_id.append(item_id)
 
-print(items_id)
+# print(items_id)
+
+df_video = pd.DataFrame(items_id)
+print(df_video)
