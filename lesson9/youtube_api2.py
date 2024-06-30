@@ -38,15 +38,17 @@ df_video = search_video(youtube, q="Python automate", max_result=50)
 channel_ids = df_video["channel_id"].unique().tolist()
 # print(",".join(channel_ids))
 
-subscribers_list = youtube.channels().list(
+response = youtube.channels().list(
         part="statistics",
         id=",".join(channel_ids),
         fields="items(id, statistics(subscriberCount))"
     )
-subscribers = subscribers_list.execute()
+subscribers_list = response.execute()
 # print(subscribers["items"][:5])
 
+subscribers = []
 for item in subscribers["items"]:
     print(item)
-    channel_id = item["id"]
-    channel_subscriber = item["subscriberCount"]
+    subscriber = {}
+    subscriber["channel_id"] = item["id"]
+    subscriber["subscriber_count"] = item["subscriberCount"]
