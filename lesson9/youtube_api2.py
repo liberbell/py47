@@ -33,3 +33,15 @@ def search_video(youtube, q="automate", max_result=50):
     return df_video
 
 df_video = search_video(youtube, q="Python automate", max_result=50)
+# print(df_video[:5])
+print(df_video["channel_id"].unique().tolist())
+channel_ids = df_video["channel_id"].unique().tolist()
+print(",".join(channel_ids))
+
+# request = youtube.channels().list(
+#         part="statistics",
+#         id=""
+#         maxResults=max_result,
+#         order="viewCount",
+#         type="video"
+#     )
