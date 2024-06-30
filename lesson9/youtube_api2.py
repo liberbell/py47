@@ -48,7 +48,7 @@ subscribers_list = response.execute()
 
 subscribers = []
 for item in subscribers_list["items"]:
-    print(item)
+    # print(item)
     subscriber = {}
     subscriber["channel_id"] = item["id"]
     subscriber["subscriber_count"] = item["statistics"]["subscriberCount"]
@@ -56,3 +56,5 @@ for item in subscribers_list["items"]:
 
 df_subscribers = pd.DataFrame(subscribers)
 print(df_subscribers)
+
+pd.merge(left=df_video, right=df_subscribers)
