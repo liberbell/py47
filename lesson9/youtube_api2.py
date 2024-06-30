@@ -55,6 +55,7 @@ for item in subscribers_list["items"]:
     subscribers.append(subscriber)
 
 df_subscribers = pd.DataFrame(subscribers)
-print(df_subscribers)
+# print(df_subscribers)
 
-pd.merge(left=df_video, right=df_subscribers)
+df_videosubscribe = pd.merge(left=df_video, right=df_subscribers, on="channel_id")
+print(df_videosubscribe)
