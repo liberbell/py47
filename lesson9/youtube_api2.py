@@ -59,3 +59,5 @@ df_subscribers = pd.DataFrame(subscribers)
 
 df_videosubscribe = pd.merge(left=df_video, right=df_subscribers, on="channel_id")
 print(df_videosubscribe)
+
+df_extracted = df[df["subscriber_count"]] < 5000
