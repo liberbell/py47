@@ -76,3 +76,5 @@ items = videos_details["items"]
 for item in items:
     video_info = {}
     video_info["video_id"] = item["id"]
+    video_info["title"] = item["snippet"]["title"]
+    video_info["view_count"] = item["statistics"]["viewCount"]
