@@ -34,13 +34,14 @@ def search_video(youtube, q="automate", max_result=50):
 
 df_video = search_video(youtube, q="Python automate", max_result=50)
 # print(df_video[:5])
-print(df_video["channel_id"].unique().tolist())
+# print(df_video["channel_id"].unique().tolist())
 channel_ids = df_video["channel_id"].unique().tolist()
-print(",".join(channel_ids))
+# print(",".join(channel_ids))
 
-request = youtube.channels().list(
+subscribers_list = youtube.channels().list(
         part="statistics",
         id=",".join(channel_ids),
         fields="items(id, statistics(subscriberCount))"
     )
-response = request.execute()
+subscribers = subscribers_list.execute()
+print(subscribers["items"][subscribers])
