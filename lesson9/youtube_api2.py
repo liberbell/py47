@@ -14,15 +14,6 @@ youtube = build(api_service_name, api_version, developerKey=api_developer_key)
 q = "Python"
 max_result = 30
 
-items = response["items"]
-items_id = []
-for item in items:
-    item_id = {}
-    item_id["video_id"] = item["id"]["videoId"]
-    item_id["channel_id"] = item["snippet"]["channelId"]
-    items_id.append(item_id)
-
-
 def search_video(youtube, q="automate", max_result=50):
     request = youtube.search().list(
         part="id,snippet",
@@ -33,7 +24,16 @@ def search_video(youtube, q="automate", max_result=50):
     )
     response = request.execute()
 
-# print(items_id)
+    items = response["items"]
+    items_id = []
+    for item in items:
+        item_id = {}
+        item_id["video_id"] = item["id"]["videoId"]
+        item_id["channel_id"] = item["snippet"]["channelId"]
+        items_id.append(item_id)
 
-df_video = pd.DataFrame(items_id)
+    df_video = pd.DataFrame(items_id)
+    return df_video
+
+
 print(df_video)
