@@ -11,9 +11,6 @@ api_developer_key = secret["KEY"]
 
 youtube = build(api_service_name, api_version, developerKey=api_developer_key)
 
-q = "Python"
-max_result = 30
-
 def search_video(youtube, q="automate", max_result=50):
     request = youtube.search().list(
         part="id,snippet",
@@ -35,5 +32,4 @@ def search_video(youtube, q="automate", max_result=50):
     df_video = pd.DataFrame(items_id)
     return df_video
 
-
-print(df_video)
+df_video = search_video(youtube, q="Python automate", max_result=50)
