@@ -54,4 +54,5 @@ for item in subscribers_list["items"]:
     subscriber["subscriber_count"] = item["statistics"]["subscriberCount"]
     subscribers.append(subscriber)
 
-print(subscribers)
+df_subscribers = pd.DataFrame(subscribers)
+print(df_subscribers)
