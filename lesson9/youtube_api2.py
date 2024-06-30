@@ -12,7 +12,7 @@ api_developer_key = secret["KEY"]
 youtube = build(api_service_name, api_version, developerKey=api_developer_key)
 
 q = "Python"
-max_result = 5
+max_result = 30
 
 request = youtube.search().list(
     part="id,snippet",
