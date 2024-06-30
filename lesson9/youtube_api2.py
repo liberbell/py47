@@ -44,4 +44,9 @@ subscribers_list = youtube.channels().list(
         fields="items(id, statistics(subscriberCount))"
     )
 subscribers = subscribers_list.execute()
-print(subscribers["items"][subscribers])
+# print(subscribers["items"][:5])
+
+for item in subscribers["items"]:
+    print(item)
+    channel_id = item["id"]
+    channel_subscriber = item["subscriberCount"]
