@@ -52,3 +52,6 @@ for item in subscribers["items"]:
     subscriber = {}
     subscriber["channel_id"] = item["id"]
     subscriber["subscriber_count"] = item["subscriberCount"]
+    subscribers.append(subscriber)
+
+print(subscribers)
