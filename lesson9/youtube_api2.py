@@ -82,4 +82,8 @@ for item in items:
     videos_info.append(video_info)
 
 df_videos_info = pd.DataFrame(videos_info)
-print(df_videos_info)
+# print(df_videos_info)
+# print(df_extracted)
+
+result = pd.merge(left=df_extracted, right=df_videos_info, on="video_id")
+print(result)
