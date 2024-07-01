@@ -84,4 +84,4 @@ def get_result(df_video, threshold=10000):
 st.title("YouTube video analytics")
 st.sidebar.write("## Search Keyword and shreshold")
 st.sidebar.write("### Search keyword")
-st.sidebar.text_input("Input search keyword")
+query = st.sidebar.text_input("Input search keyword", "Python automated")
