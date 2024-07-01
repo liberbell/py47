@@ -32,8 +32,6 @@ def search_video(youtube, q="automate", max_result=50):
     df_video = pd.DataFrame(items_id)
     return df_video
 
-df_video = search_video(youtube, q="Python automate", max_result=50)
-
 def get_result(df_video, threshold=10000):
     channel_ids = df_video["channel_id"].unique().tolist()
 
@@ -76,3 +74,9 @@ def get_result(df_video, threshold=10000):
 
     result = pd.merge(left=df_extracted, right=df_videos_info, on="video_id")
     result = result.loc[:, ["video_id", "channel_id", "title", "subscriber_count", "view_count"]]
+
+    return result
+
+df_video = search_video(youtube, q="Python automate", max_result=50)
+result = get_result(df_video, threshold=15000)
+print(result)
