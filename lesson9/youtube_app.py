@@ -45,8 +45,11 @@ def get_result(df_video, threshold=10000):
     subscribers = []
     for item in subscribers_list["items"]:
         subscriber = {}
-        subscriber["channel_id"] = item["id"]
-        subscriber["subscriber_count"] = int(item["statistics"]["subscriberCount"])
+        if len(item["statistics"]) > 0:
+            subscriber["channel_id"] = item["id"]
+            subscriber["subscriber_count"] = int(item["statistics"]["subscriberCount"])
+        else:
+            subscriber["channel_id"] = item["id"]
         subscribers.append(subscriber)
 
     df_subscribers = pd.DataFrame(subscribers)
@@ -78,5 +81,5 @@ def get_result(df_video, threshold=10000):
     return result
 
 df_video = search_video(youtube, q="Python automate", max_result=50)
-result = get_result(df_video, threshold=15000)
+result = get_result(df_video, threshold=50000)
 print(result)
