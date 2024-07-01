@@ -86,4 +86,5 @@ df_videos_info = pd.DataFrame(videos_info)
 # print(df_extracted)
 
 result = pd.merge(left=df_extracted, right=df_videos_info, on="video_id")
+result.loc[:, "video_id", "channel__id", "title", "subscriber_count", "view_count"]
 print(result)
