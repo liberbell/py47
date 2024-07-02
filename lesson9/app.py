@@ -106,3 +106,6 @@ url = f"https://www.youtube.com/{video_id}"
 
 video_field = st.empty()
 video_field.write("### Play video here")
+
+if st.button("Play"):
+    if ln()
