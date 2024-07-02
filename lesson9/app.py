@@ -85,3 +85,5 @@ st.title("YouTube video analytics")
 st.sidebar.write("## Search Keyword and shreshold")
 st.sidebar.write("### Search keyword")
 query = st.sidebar.text_input("Input search keyword", "Python automated")
+
+shreshold = st.sidebar.slider("Subscriber shreshold", 100, 50000, 10000)
