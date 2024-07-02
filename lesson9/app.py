@@ -97,3 +97,5 @@ st.markdown(f"""
 
 df_video = search_video(youtube, q=query, max_result=50)
 result = get_result(df_video, threshold=threshold)
+
+st.write("### Analysing result", result)
