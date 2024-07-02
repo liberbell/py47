@@ -82,15 +82,18 @@ def get_result(df_video, threshold=10000):
     return result
 
 st.title("YouTube video analytics")
-st.sidebar.write("## Search Keyword and shreshold")
+st.sidebar.write("## Search Keyword and threshold")
 st.sidebar.write("### Search keyword")
 query = st.sidebar.text_input("Input search keyword", "Python automated")
 
-shreshold = st.sidebar.slider("Subscriber shreshold", 100, 50000, 10000)
+threshold = st.sidebar.slider("Subscriber threshold", 100, 50000, 10000)
 
 st.write("### Selected parameters")
 st.markdown(f"""
 -- Search Query:   {query}
 
--- Subscriber shreshold:   {shreshold}
+-- Subscriber shreshold:   {threshold}
             """)
+
+df_video = search_video(youtube, q=query, max_result=50)
+result = get_result(df_video, threshold=threshold)
