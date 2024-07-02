@@ -87,3 +87,9 @@ st.sidebar.write("### Search keyword")
 query = st.sidebar.text_input("Input search keyword", "Python automated")
 
 shreshold = st.sidebar.slider("Subscriber shreshold", 100, 50000, 10000)
+
+st.write("### Selected parameters")
+st.markdown(f"""
+-- Search Query: {query}
+-- Subscriber shreshold: {shreshold}
+            """)
