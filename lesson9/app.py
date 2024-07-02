@@ -102,3 +102,6 @@ st.write("### Analysing result", result)
 st.write("### Video play")
 
 video_id = st.text_input("### Input video ID")
+url = f"https://www.youtube.com/{video_id}"
+
+video_field = st.empty()
