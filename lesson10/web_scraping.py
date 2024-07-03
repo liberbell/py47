@@ -15,3 +15,6 @@ print(n_subscriber)
 n_review = result.find('p', {'class': 'reviews'}).text
 n_review =int(n_review.split("：")[1])
 print(n_review)
+
+url_ec = "https://scraping.official.ec/"
+web_data = requests.get(url_ec)
