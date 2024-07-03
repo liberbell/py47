@@ -105,7 +105,7 @@ st.write("### Analysing result", result)
 st.write("### Video play")
 
 video_id = st.text_input("### Input video ID")
-url = f"https://www.youtube.com/{video_id}"
+url = f"https://youtu.be/{video_id}"
 
 video_field = st.empty()
 video_field.write("### Play video here")
@@ -113,6 +113,7 @@ video_field.write("### Play video here")
 if st.button("Play"):
     if len(video_id) > 0:
         try:
+            st.write(url)
             video_field.video(url)
         except:
             st.error("Something went wrong")
