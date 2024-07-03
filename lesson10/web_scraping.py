@@ -8,4 +8,4 @@ web_data = requests.get(url)
 result = bs(web_data.text, "html.parser")
 # print(result)
 
-print(result.find_all('p', {'class': 'subscribers'}))
+print(result.find('p', {'class': 'subscribers'}).text)
