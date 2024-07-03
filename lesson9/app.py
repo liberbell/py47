@@ -108,4 +108,8 @@ video_field = st.empty()
 video_field.write("### Play video here")
 
 if st.button("Play"):
-    if ln()
+    if len(video_id) > 0:
+        try:
+            video_field.video()
+        except:
+            pass
