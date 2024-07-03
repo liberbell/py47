@@ -113,6 +113,6 @@ video_field.write("### Play video here")
 if st.button("Play"):
     if len(video_id) > 0:
         try:
-            video_field.video()
+            video_field.video(url)
         except:
-            pass
+            st.error("Something went wrong")
