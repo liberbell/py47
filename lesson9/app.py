@@ -76,8 +76,11 @@ def get_result(df_video, threshold=10000):
 
     df_videos_info = pd.DataFrame(videos_info)
 
-    result = pd.merge(left=df_extracted, right=df_videos_info, on="video_id")
-    result = result.loc[:, ["video_id", "channel_id", "title", "subscriber_count", "view_count"]]
+    try:
+        result = pd.merge(left=df_extracted, right=df_videos_info, on="video_id")
+        result = result.loc[:, ["video_id", "channel_id", "title", "subscriber_count", "view_count"]]
+    except:
+        result = pd.DataFrame()
 
     return result
 
