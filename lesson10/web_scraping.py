@@ -8,4 +8,10 @@ web_data = requests.get(url)
 result = bs(web_data.text, "html.parser")
 # print(result)
 
-print(result.find('p', {'class': 'subscribers'}).text)
+n_subscriber = result.find('p', {'class': 'subscribers'}).text
+print(n_subscriber.split("：")[1])
+
+n_subscriber = int(n_subscriber.split("：")[1])
+
+n_review = result.find('p', {'class': 'reviews'}).text
+print(n_review.split("：")[1])
