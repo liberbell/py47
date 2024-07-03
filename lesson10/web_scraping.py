@@ -20,5 +20,6 @@ url_ec = "https://scraping.official.ec/"
 web_data = requests.get(url_ec)
 result = bs(web_data.text, "html.parser")
 
-soup = result.find('ul', {'id': 'itemList'})
-print(soup)
+item_list = result.find('ul', {'id': 'itemList'})
+# print(item_list)
+print(item_list.findAll('li'))
