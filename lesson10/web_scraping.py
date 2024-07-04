@@ -10,11 +10,11 @@ result = bs(web_data.text, "html.parser")
 
 n_subscriber = result.find('p', {'class': 'subscribers'}).text
 n_subscriber = int(n_subscriber.split("：")[1])
-print(n_subscriber)
+# print(n_subscriber)
 
 n_review = result.find('p', {'class': 'reviews'}).text
 n_review =int(n_review.split("：")[1])
-print(n_review)
+# print(n_review)
 
 url_ec = "https://scraping.official.ec/"
 web_data = requests.get(url_ec)
@@ -24,4 +24,4 @@ item_list = result.find('ul', {'id': 'itemList'})
 # print(item_list)
 items = item_list.findAll('li')
 item = items[0]
-print(item.find_all('p', {'class': 'items-grid_itemTitleText_5c97110f'}))
+title = item.find('p', {'class': 'items-grid_itemTitleText_5c97110f'}).text
