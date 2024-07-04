@@ -22,4 +22,6 @@ result = bs(web_data.text, "html.parser")
 
 item_list = result.find('ul', {'id': 'itemList'})
 # print(item_list)
-print(item_list.findAll('li'))
+items = item_list.findAll('li')
+item = items[0]
+print(item.find_all('p', {'class': 'items-grid_itemTitleText_5c97110f'}))
