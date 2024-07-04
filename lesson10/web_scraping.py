@@ -25,3 +25,5 @@ item_list = result.find('ul', {'id': 'itemList'})
 items = item_list.findAll('li')
 item = items[0]
 title = item.find('p', {'class': 'items-grid_itemTitleText_5c97110f'}).text
+
+print(item.find('p', {'class': 'items-grid_price_5c97110f'}).text)
