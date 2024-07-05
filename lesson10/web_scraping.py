@@ -30,4 +30,8 @@ price = item.find('p', {'class': 'items-grid_price_5c97110f'}).text
 price = price.replace("¥", "")
 price = int(price.replace(",", ""))
 
-print(price)
+# print(price)
+
+link = item.find("a")["href"]
+
+print(items[0].find("p", {"class": "items-grid_soldOut_5c97110f"}) == None)
