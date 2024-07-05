@@ -31,7 +31,8 @@ for item in items:
     price = item.find('p', {'class': 'items-grid_price_5c97110f'}).text
     datum_ec["price"] = price.replace("¥", "").replace(",", "")
     datum_ec["link"] = item.find("a")["href"]
-    datum_ec["is_stock"] = items[2].find("p", {"class": "items-grid_soldOut_5c97110f"}) == None
-    
+    is_stock = items[2].find("p", {"class": "items-grid_soldOut_5c97110f"}) == None
+    datum_ec["is_stock"] = "Stock" if is_stock == True else "Sold out"
+    data_ec.append(datum_ec)
 
-print("Stock" if is_stock == True else "Sold out")
+print(data_ec)
