@@ -27,15 +27,11 @@ items = item_list.findAll('li')
 data_ec = []
 for item in items:
     datum_ec = {} 
-    title = item.find('p', {'class': 'items-grid_itemTitleText_5c97110f'}).text
-
+    datum_ec["title"] = item.find('p', {'class': 'items-grid_itemTitleText_5c97110f'}).text
     price = item.find('p', {'class': 'items-grid_price_5c97110f'}).text
-    price = price.replace("¥", "").replace(",", "")
+    datum_ec["price"] = price.replace("¥", "").replace(",", "")
+    datum_ec["link"] = item.find("a")["href"]
+    datum_ec["is_stock"] = items[2].find("p", {"class": "items-grid_soldOut_5c97110f"}) == None
+    
 
-# print(price)
-
-    link = item.find("a")["href"]
-
-    is_stock = items[2].find("p", {"class": "items-grid_soldOut_5c97110f"}) == None
-# print(is_stock)
 print("Stock" if is_stock == True else "Sold out")
