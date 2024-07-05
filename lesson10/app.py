@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup as bs
 import requests
 
-data_udemy = {}
+# data_udemy = {}/
 
 def get_data_udemy():
     url = "https://scraping-for-beginner.herokuapp.com/udemy"
@@ -16,3 +16,5 @@ def get_data_udemy():
         "n_subscriber": n_subscriber,
         "n_review": n_review
     }
+
+print(get_data_udemy())
