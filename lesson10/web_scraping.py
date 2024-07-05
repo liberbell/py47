@@ -34,4 +34,6 @@ price = int(price.replace(",", ""))
 
 link = item.find("a")["href"]
 
-print(items[0].find("p", {"class": "items-grid_soldOut_5c97110f"}) == None)
+is_stock = items[2].find("p", {"class": "items-grid_soldOut_5c97110f"}) == None
+# print(is_stock)
+print("Stock" if is_stock == True else "Sold out")
