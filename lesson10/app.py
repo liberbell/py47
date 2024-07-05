@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup as bs
 import requests
+import pandas as pd
 
 # data_udemy = {}/
 
@@ -17,4 +18,27 @@ def get_data_udemy():
         "n_review": n_review
     }
 
+def get_data_ec():
+    url_ec = "https://scraping.official.ec/"
+    web_data = requests.get(url_ec)
+    result = bs(web_data.text, "html.parser")
+
+    item_list = result.find('ul', {'id': 'itemList'})
+    items = item_list.findAll('li')
+
+    data_ec = []
+    for item in items:
+        datum_ec = {} 
+        datum_ec["title"] = item.find('p', {'class': 'items-grid_itemTitleText_5c97110f'}).text
+        price = item.find('p', {'class': 'items-grid_price_5c97110f'}).text
+        datum_ec["price"] = price.replace("¥", "").replace(",", "")
+        datum_ec["link"] = item.find("a")["href"]
+        is_stock = items[2].find("p", {"class": "items-grid_soldOut_5c97110f"}) == None
+        datum_ec["is_stock"] = "Stock" if is_stock == True else "Sold out"
+        data_ec.append(datum_ec)
+
+    df_ec = pd.DataFrame(data_ec)
+    return df_ec
+
 print(get_data_udemy())
+print(get_data_ec())
