@@ -7,7 +7,7 @@ scopes = [
 ]
 
 credentials = Credentials.from_service_account_file(
-    'path/to/the/downloaded/file.json',
+    'service_account.json',
     scopes=scopes
 )
 
