@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup as bs
 import requests
 import pandas as pd
+from google.oauth2.service_account import Credentials
+import gspread
 
 # data_udemy = {}/
 
@@ -40,5 +42,16 @@ def get_data_ec():
     df_ec = pd.DataFrame(data_ec)
     return df_ec
 
-print(get_data_udemy())
-print(get_data_ec())
+
+scopes = [
+    'https://www.googleapis.com/auth/spreadsheets',
+    'https://www.googleapis.com/auth/drive'
+]
+credentials = Credentials.from_service_account_file(
+    'service_account.json',
+    scopes=scopes
+)
+gc = gspread.authorize(credentials)
+
+# print(get_data_udemy())
+# print(get_data_ec())
