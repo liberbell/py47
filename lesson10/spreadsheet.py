@@ -18,3 +18,4 @@ SP_SHEET_KEY = '1C-278Mp-exInLJ1jpkaienNeAjXUNRGmEI_-T5jSH10'
 sh = gc.open_by_key(SP_SHEET_KEY)
 SP_SHEET = "db"
 worksheet = sh.worksheet(SP_SHEET)
+print(worksheet.get_all_values())
