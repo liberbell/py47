@@ -89,12 +89,12 @@ base = alt.Chart(df_udemy).encode(
 
 line1 = base.mark_line(opacity=0.3, color='#57A44C').encode(
     alt.Y('n_subscriber',
-          axis=alt.Axis("Subscriber number", titleColor='#57A44C'))
+          axis=alt.Axis(title="Subscriber number", titleColor='#57A44C'))
 )
 
 line2 = base.mark_line(stroke='#5276A7', interpolate='monotone').encode(
     alt.Y("n_review",
-          axis=alt.Axis("Reviewers", titleColor='#5276A7'))
+          axis=alt.Axis(title="Reviewers", titleColor='#5276A7'))
 )
 
 chart = alt.layer(line1, line2).resolve_scale(
