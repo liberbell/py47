@@ -75,3 +75,6 @@ print(data_udemy)
 # df.append(data_udemy, ignore_index=True)
 df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
 print(df)
+
+first_row = 1
+set_with_dataframe(worksheet, df, row=1, col=1)
