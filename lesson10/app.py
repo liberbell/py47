@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from google.oauth2.service_account import Credentials
 import gspread
+import datetime
 
 # data_udemy = {}/
 
@@ -60,8 +61,11 @@ SP_SHEET = "db"
 worksheet = sh.worksheet(SP_SHEET)
 data = worksheet.get_all_values()
 
-df = pd.DataFrame(data[1:], columns=data[0])
-print(df)
+data_udemy = get_data_udemy()
+print(data_udemy)
 
 # print(get_data_udemy())
 # print(get_data_ec())
+
+today = datetime.date.today().strftime("%Y/%m/%d")
+print(today)
