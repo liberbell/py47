@@ -87,12 +87,14 @@ df_udemy = df_udemy.astype({
     "n_subscriber": int,
     "n_review": int
 })
-print(df_udemy.dtypes)
+# print(df_udemy.dtypes)
 ymin1 = df_udemy["n_subscriber"].min()-10
 ymax1 = df_udemy["n_subscriber"].min()+10
 
 ymin2 = df_udemy["n_review"].min()-10
 ymax2 = df_udemy["n_review"].min()+10
+
+print(type(ymin2), type(ymax2))
 
 base = alt.Chart(df_udemy).encode(
     alt.X('date:T', axis=alt.Axis(title=None))
@@ -108,7 +110,7 @@ line1 = base.mark_line(opacity=0.3, color='#57A44C').encode(
 line2 = base.mark_line(stroke='#5276A7', interpolate='monotone').encode(
     alt.Y("n_review",
           axis=alt.Axis(title="Reviewers", titleColor='#5276A7'),
-          scale=alt.Scale([ymin2, ymax2])
+          scale=alt.Scale(domain=[ymin2, ymax2])
           )
 )
 
