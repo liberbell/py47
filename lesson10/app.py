@@ -74,7 +74,7 @@ def main():
     first_row = 1
     set_with_dataframe(worksheet, df, row=1, col=1)
 
-def if __name__ == "__main__":
+if __name__ == "__main__":
     main
 
 # data = worksheet.get_all_values()
