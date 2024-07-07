@@ -61,7 +61,6 @@ SP_SHEET = "db"
 worksheet = sh.worksheet(SP_SHEET)
 data = worksheet.get_all_values()
 df = pd.DataFrame(data[1:], columns=data[0])
-print(df)
 
 data_udemy = get_data_udemy()
 
@@ -70,6 +69,7 @@ data_udemy = get_data_udemy()
 
 today = datetime.date.today().strftime("%Y/%m/%d")
 data_udemy["today"] = today
-print(data_udemy)
+
+df.append(data_udemy, ignore_index=True)
 
 
