@@ -101,4 +101,4 @@ chart = alt.layer(line1, line2).resolve_scale(
     y='independent'
 )
 
-print(df_udemy["n_subscriber"].min())
+print(int(df_udemy["n_subscriber"].min())-10)
