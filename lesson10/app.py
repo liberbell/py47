@@ -68,8 +68,9 @@ data_udemy = get_data_udemy()
 # print(get_data_ec())
 
 today = datetime.date.today().strftime("%Y/%m/%d")
-data_udemy["today"] = today
+data_udemy["date"] = today
+print(data_udemy)
 
-df.append(data_udemy, ignore_index=True)
+# df.append(data_udemy, ignore_index=True)
 df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
-
+print(df)
