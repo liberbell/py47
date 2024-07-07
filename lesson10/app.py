@@ -71,5 +71,5 @@ today = datetime.date.today().strftime("%Y/%m/%d")
 data_udemy["today"] = today
 
 df.append(data_udemy, ignore_index=True)
-
+df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
 
