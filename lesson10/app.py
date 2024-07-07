@@ -78,3 +78,6 @@ print(df)
 
 first_row = 1
 set_with_dataframe(worksheet, df, row=1, col=1)
+
+data = worksheet.get_all_values()
+df_udemy = pd.DataFrame(data[1:], columns=data[0])
