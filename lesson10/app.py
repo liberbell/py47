@@ -46,7 +46,7 @@ def get_data_ec():
     df_ec = pd.DataFrame(data_ec)
     return df_ec
 
-def main():
+def get_worksheet():
     scopes = [
         'https://www.googleapis.com/auth/spreadsheets',
         'https://www.googleapis.com/auth/drive'
@@ -73,9 +73,13 @@ def main():
 
     first_row = 1
     set_with_dataframe(worksheet, df, row=1, col=1)
+    return worksheet
+
+def main():
+    
 
 if __name__ == "__main__":
-    main
+    main()
 
 # data = worksheet.get_all_values()
 # df_udemy = pd.DataFrame(data[1:], columns=data[0])
