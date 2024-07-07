@@ -8,6 +8,7 @@ from gspread_dataframe import set_with_dataframe
 import altair as alt
 
 # data_udemy = {}/
+today = datetime.date.today().strftime("%Y/%m/%d")
 
 def get_data_udemy():
     url = "https://scraping-for-beginner.herokuapp.com/udemy"
@@ -45,71 +46,72 @@ def get_data_ec():
     df_ec = pd.DataFrame(data_ec)
     return df_ec
 
+def main():
+    scopes = [
+        'https://www.googleapis.com/auth/spreadsheets',
+        'https://www.googleapis.com/auth/drive'
+    ]
+    credentials = Credentials.from_service_account_file(
+        'service_account.json',
+        scopes=scopes
+    )
+    gc = gspread.authorize(credentials)
 
-scopes = [
-    'https://www.googleapis.com/auth/spreadsheets',
-    'https://www.googleapis.com/auth/drive'
-]
-credentials = Credentials.from_service_account_file(
-    'service_account.json',
-    scopes=scopes
-)
-gc = gspread.authorize(credentials)
+    SP_SHEET_KEY = '1C-278Mp-exInLJ1jpkaienNeAjXUNRGmEI_-T5jSH10'
 
-SP_SHEET_KEY = '1C-278Mp-exInLJ1jpkaienNeAjXUNRGmEI_-T5jSH10'
+    sh = gc.open_by_key(SP_SHEET_KEY)
+    SP_SHEET = "db"
+    worksheet = sh.worksheet(SP_SHEET)
+    data = worksheet.get_all_values()
+    df = pd.DataFrame(data[1:], columns=data[0])
 
-sh = gc.open_by_key(SP_SHEET_KEY)
-SP_SHEET = "db"
-worksheet = sh.worksheet(SP_SHEET)
-data = worksheet.get_all_values()
-df = pd.DataFrame(data[1:], columns=data[0])
+    data_udemy = get_data_udemy()
 
-data_udemy = get_data_udemy()
+    data_udemy["date"] = today
 
-today = datetime.date.today().strftime("%Y/%m/%d")
-data_udemy["date"] = today
+    df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
 
-df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
-print(df)
+    first_row = 1
+    set_with_dataframe(worksheet, df, row=1, col=1)
 
-first_row = 1
-set_with_dataframe(worksheet, df, row=1, col=1)
+def if __name__ == "__main__":
+    main
 
-data = worksheet.get_all_values()
-df_udemy = pd.DataFrame(data[1:], columns=data[0])
+# data = worksheet.get_all_values()
+# df_udemy = pd.DataFrame(data[1:], columns=data[0])
 
-df_udemy = df_udemy.astype({
-    "n_subscriber": int,
-    "n_review": int
-})
+# df_udemy = df_udemy.astype({
+#     "n_subscriber": int,
+#     "n_review": int
+# })
 
-ymin1 = df_udemy["n_subscriber"].min()-10
-ymax1 = df_udemy["n_subscriber"].min()+10
+# ymin1 = df_udemy["n_subscriber"].min()-10
+# ymax1 = df_udemy["n_subscriber"].min()+10
 
-ymin2 = df_udemy["n_review"].min()-10
-ymax2 = df_udemy["n_review"].min()+10
+# ymin2 = df_udemy["n_review"].min()-10
+# ymax2 = df_udemy["n_review"].min()+10
 
-print(type(ymin2), type(ymax2))
+# print(type(ymin2), type(ymax2))
 
-base = alt.Chart(df_udemy).encode(
-    alt.X('date:T', axis=alt.Axis(title=None))
-)
+# base = alt.Chart(df_udemy).encode(
+#     alt.X('date:T', axis=alt.Axis(title=None))
+# )
 
-line1 = base.mark_line(opacity=0.3, color='#57A44C').encode(
-    alt.Y('n_subscriber',
-          axis=alt.Axis(title="Subscriber number", titleColor='#57A44C'),
-          scale=alt.Scale(domain=[ymin1, ymax1])
-          )
-)
+# line1 = base.mark_line(opacity=0.3, color='#57A44C').encode(
+#     alt.Y('n_subscriber',
+#           axis=alt.Axis(title="Subscriber number", titleColor='#57A44C'),
+#           scale=alt.Scale(domain=[ymin1, ymax1])
+#           )
+# )
 
-line2 = base.mark_line(stroke='#5276A7', interpolate='monotone').encode(
-    alt.Y("n_review",
-          axis=alt.Axis(title="Reviewers", titleColor='#5276A7'),
-          scale=alt.Scale(domain=[ymin2, ymax2])
-          )
-)
+# line2 = base.mark_line(stroke='#5276A7', interpolate='monotone').encode(
+#     alt.Y("n_review",
+#           axis=alt.Axis(title="Reviewers", titleColor='#5276A7'),
+#           scale=alt.Scale(domain=[ymin2, ymax2])
+#           )
+# )
 
-chart = alt.layer(line1, line2).resolve_scale(
-    y='independent'
-)
+# chart = alt.layer(line1, line2).resolve_scale(
+#     y='independent'
+# )
 
