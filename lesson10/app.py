@@ -88,12 +88,12 @@ base = alt.Chart(df_udemy).encode(
 )
 
 line1 = base.mark_line(opacity=0.3, color='#57A44C').encode(
-    alt.Y('average(temp_max)').title('Avg. Temperature (°C)', titleColor='#57A44C'),
-    alt.Y2('average(temp_min)')
+    alt.Y('data:T', axis=alt.Axis("Subscriber number", titleColor='#57A44C'))
 )
 
 line2 = base.mark_line(stroke='#5276A7', interpolate='monotone').encode(
-    alt.Y('average(precipitation)').title('Precipitation (inches)', titleColor='#5276A7')
+    alt.Y("n_subscriber",
+        'average(precipitation)').title('Precipitation (inches)', titleColor='#5276A7')
 )
 
 alt.layer(line1, line2).resolve_scale(
