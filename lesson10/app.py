@@ -101,4 +101,9 @@ chart = alt.layer(line1, line2).resolve_scale(
     y='independent'
 )
 
+df_udemy.astype({
+    "n_subscriber": int,
+    "n_review": int
+})
+print(df_udemy.dtypes)
 print(int(df_udemy["n_subscriber"].min())-10)
