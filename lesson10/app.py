@@ -101,7 +101,7 @@ chart = alt.layer(line1, line2).resolve_scale(
     y='independent'
 )
 
-df_udemy.astype({
+df_udemy = df_udemy.astype({
     "n_subscriber": int,
     "n_review": int
 })
