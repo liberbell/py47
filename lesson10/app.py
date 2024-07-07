@@ -4,6 +4,7 @@ import pandas as pd
 from google.oauth2.service_account import Credentials
 import gspread
 import datetime
+from gspread_dataframe import set_with_dataframe
 
 # data_udemy = {}/
 
