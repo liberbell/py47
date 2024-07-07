@@ -66,14 +66,9 @@ df = pd.DataFrame(data[1:], columns=data[0])
 
 data_udemy = get_data_udemy()
 
-# print(get_data_udemy())
-# print(get_data_ec())
-
 today = datetime.date.today().strftime("%Y/%m/%d")
 data_udemy["date"] = today
-print(data_udemy)
 
-# df.append(data_udemy, ignore_index=True)
 df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
 print(df)
 
@@ -87,7 +82,7 @@ df_udemy = df_udemy.astype({
     "n_subscriber": int,
     "n_review": int
 })
-# print(df_udemy.dtypes)
+
 ymin1 = df_udemy["n_subscriber"].min()-10
 ymax1 = df_udemy["n_subscriber"].min()+10
 
