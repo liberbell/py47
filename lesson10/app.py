@@ -97,6 +97,8 @@ line2 = base.mark_line(stroke='#5276A7', interpolate='monotone').encode(
           axis=alt.Axis("Reviewers", titleColor='#5276A7'))
 )
 
-alt.layer(line1, line2).resolve_scale(
+chart = alt.layer(line1, line2).resolve_scale(
     y='independent'
 )
+
+print(df_udemy["n_subscriber"].min())
