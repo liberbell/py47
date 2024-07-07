@@ -83,11 +83,11 @@ set_with_dataframe(worksheet, df, row=1, col=1)
 data = worksheet.get_all_values()
 df_udemy = pd.DataFrame(data[1:], columns=data[0])
 
-base = alt.Chart(source).encode(
-    alt.X('month(date):T').title(None)
+base = alt.Chart(df_udemy).encode(
+    alt.X('date:T', axis=alt.Axis(title=None))
 )
 
-line1 = base.mark_area(opacity=0.3, color='#57A44C').encode(
+line1 = base.mark_line(opacity=0.3, color='#57A44C').encode(
     alt.Y('average(temp_max)').title('Avg. Temperature (°C)', titleColor='#57A44C'),
     alt.Y2('average(temp_min)')
 )
