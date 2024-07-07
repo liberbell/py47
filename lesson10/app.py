@@ -62,10 +62,10 @@ worksheet = sh.worksheet(SP_SHEET)
 data = worksheet.get_all_values()
 
 data_udemy = get_data_udemy()
-print(data_udemy)
 
 # print(get_data_udemy())
 # print(get_data_ec())
 
 today = datetime.date.today().strftime("%Y/%m/%d")
-print(today)
+data_udemy["today"] = today
+print(data_udemy)
