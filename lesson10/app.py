@@ -62,18 +62,21 @@ def get_worksheet():
     sh = gc.open_by_key(SP_SHEET_KEY)
     SP_SHEET = "db"
     worksheet = sh.worksheet(SP_SHEET)
-    data = worksheet.get_all_values()
-    df = pd.DataFrame(data[1:], columns=data[0])
 
-    data_udemy = get_data_udemy()
-
-    data_udemy["date"] = today
-
-    df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
-
-    first_row = 1
-    set_with_dataframe(worksheet, df, row=1, col=1)
     return worksheet
+
+worksheet = get_worksheet()
+data = worksheet.get_all_values()
+df = pd.DataFrame(data[1:], columns=data[0])
+
+data_udemy = get_data_udemy()
+
+data_udemy["date"] = today
+
+df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
+
+first_row = 1
+set_with_dataframe(worksheet, df, row=1, col=1)
 
 def main():
     
