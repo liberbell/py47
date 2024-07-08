@@ -25,7 +25,7 @@ def get_data_udemy():
         "n_review": n_review
     }
 
-def get_data_ec():
+def get_df_ec():
     url_ec = "https://scraping.official.ec/"
     web_data = requests.get(url_ec)
     result = bs(web_data.text, "html.parser")
@@ -101,49 +101,15 @@ def get_chart():
     )
     return chart
 
-data_ec = get_data_ec()
+df_ec = get_df_ec()
 chart = get_chart()
 
 st.title("Subscriber chart")
 st.write("## Udemy information")
 
 st.altair_chart(chart, use_container_width=True)
-st.write("## EC information", data_ec)
+st.write("## EC information", df_ec)
 
-
-# data_udemy = get_data_udemy()
-
-# data_udemy["date"] = today
-
-# df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
-
-# first_row = 1
-# set_with_dataframe(worksheet, df, row=1, col=1)
-
-# def main():
-    
-
-# if __name__ == "__main__":
-#     main()
-
-# data = worksheet.get_all_values()
-# df_udemy = pd.DataFrame(data[1:], columns=data[0])
-
-# df_udemy = df_udemy.astype({
-#     "n_subscriber": int,
-#     "n_review": int
-# })
-
-# ymin1 = df_udemy["n_subscriber"].min()-10
-# ymax1 = df_udemy["n_subscriber"].min()+10
-
-# ymin2 = df_udemy["n_review"].min()-10
-# ymax2 = df_udemy["n_review"].min()+10
-
-# print(type(ymin2), type(ymax2))
-
-# base = alt.Chart(df_udemy).encode(
-#     alt.X('date:T', axis=alt.Axis(title=None))
 # )
 
 # line1 = base.mark_line(opacity=0.3, color='#57A44C').encode(
