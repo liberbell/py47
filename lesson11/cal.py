@@ -13,3 +13,8 @@ print(1 == 2)
 print(1 != 2)
 print("bob" == "smith")
 print("bob" == "bob")
+
+a = 100
+print(type(a))
+b = 1.5
+print(type(b))
