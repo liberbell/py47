@@ -24,3 +24,6 @@ print(c, type(c))
 
 name = "bob"
 print(name, type(name))
+
+flg = True
+print(flg, type(flg))
