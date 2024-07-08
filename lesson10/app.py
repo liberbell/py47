@@ -6,6 +6,7 @@ import gspread
 import datetime
 from gspread_dataframe import set_with_dataframe
 import altair as alt
+import streamlit as st
 
 # data_udemy = {}/
 today = datetime.date.today().strftime("%Y/%m/%d")
@@ -74,7 +75,7 @@ def get_chart():
         "n_subscriber": int,
         "n_review": int
     })
-    
+
     ymin1 = df_udemy["n_subscriber"].min()-10
     ymax1 = df_udemy["n_subscriber"].min()+10
     ymin2 = df_udemy["n_review"].min()-10
@@ -100,21 +101,29 @@ def get_chart():
     )
     return chart
 
+data_ec = get_data_ec()
+chart = get_chart()
 
-data_udemy = get_data_udemy()
+st.title("Subscriber chart")
+st.write("## Udemy information")
 
-data_udemy["date"] = today
+st.altair_chart(chart, use_container_width=True)
 
-df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
 
-first_row = 1
-set_with_dataframe(worksheet, df, row=1, col=1)
+# data_udemy = get_data_udemy()
 
-def main():
+# data_udemy["date"] = today
+
+# df = pd.concat([df, pd.DataFrame([data_udemy])], ignore_index=True)
+
+# first_row = 1
+# set_with_dataframe(worksheet, df, row=1, col=1)
+
+# def main():
     
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
 # data = worksheet.get_all_values()
 # df_udemy = pd.DataFrame(data[1:], columns=data[0])
