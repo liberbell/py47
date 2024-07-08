@@ -108,6 +108,7 @@ st.title("Subscriber chart")
 st.write("## Udemy information")
 
 st.altair_chart(chart, use_container_width=True)
+st.write("## EC information", data_ec)
 
 
 # data_udemy = get_data_udemy()
