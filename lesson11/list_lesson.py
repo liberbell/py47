@@ -18,3 +18,4 @@ scores = {
     "Science": 80,
     "Social": 100
 }
+print(scores, type(scores))
