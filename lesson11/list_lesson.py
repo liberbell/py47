@@ -9,3 +9,12 @@ print(scores)
 
 scores.pop()
 print(scores)
+
+scores = [40, 90, 80, 80, 100]
+scores = {
+    "math": 40,
+    "Japanese": 90,
+    "English": 80,
+    "Science": 80,
+    "Social": 100
+}
