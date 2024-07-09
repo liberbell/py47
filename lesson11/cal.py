@@ -27,3 +27,10 @@ print(name, type(name))
 
 flg = True
 print(flg, type(flg))
+
+d = [10, 20, 30]
+print(type(d))
+e = {}
+print(type(e))
+f = ()
+print(type(f))
