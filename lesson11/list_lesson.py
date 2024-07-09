@@ -2,3 +2,7 @@ list1 = ["bob", "alex", "eric"]
 print(list1, type(list1))
 print(list1[0], list1[2])
 print(list1[-1])
+
+scores = [40, 20, 30]
+scores.append(50)
+print(scores)
