@@ -19,3 +19,4 @@ scores = {
     "Social": 100
 }
 print(scores, type(scores))
+print(scores["English"])
