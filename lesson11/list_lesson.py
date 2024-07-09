@@ -6,3 +6,6 @@ print(list1[-1])
 scores = [40, 20, 30]
 scores.append(50)
 print(scores)
+
+scores.pop()
+print(scores)
