@@ -20,3 +20,8 @@ scores = {
 }
 print(scores, type(scores))
 print(scores["English"])
+
+scores["history"] = 50
+print(scores, type(scores))
+scores.pop("history")
+print(scores, type(scores))
