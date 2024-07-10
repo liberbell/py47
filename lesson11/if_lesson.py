@@ -1,4 +1,4 @@
-money = 1000
+money = 7999
 
 if money >= 8000:
     print("Go to the TDL")
