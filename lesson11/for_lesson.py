@@ -7,3 +7,6 @@ print(names[4] + " san")
 
 for i in range(len(names)):
     print(names[i] + " san")
+
+for name in names:
+    print(name + " san")
