@@ -17,9 +17,8 @@ def cal_square(width):
 result = cal_square(width=10)
 print(result)
 
-def cal_tri(width, height):
-    result =  (width * height) / 2
-    return result
+def cal_tri(width=100, height=100):
+    return (width * height) / 2
 
 result = cal_tri(width=10, height=5)
 print(result)
