@@ -6,4 +6,4 @@ class Person:
         self.age = age
 
 bob = Person(name="bob", nationality="Jamaica", age=67)
-print(bob)
+print(bob.age, bob.nationality, bob.name)
