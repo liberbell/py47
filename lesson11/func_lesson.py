@@ -12,5 +12,7 @@ say_hello2(name="bob")
 
 def cal_square(width):
     print(width * width)
+    return width * width
 
-cal_square(10)
+result = cal_square(10)
+print(result)
