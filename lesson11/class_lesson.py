@@ -5,7 +5,7 @@ class Person:
         self.nationality = nationality
         self.age = age
     
-    def say_hello():
+    def say_hello(self):
         print("Hello, everyone.")
 
 bob = Person(name="bob", nationality="Jamaica", age=67)
