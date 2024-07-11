@@ -7,3 +7,6 @@ class Person:
 
 bob = Person(name="bob", nationality="Jamaica", age=67)
 print(bob.age, bob.nationality, bob.name)
+
+eric = Person(name="eric", nationality="British", age=75)
+print(eric.age, eric.nationality, eric.name)
