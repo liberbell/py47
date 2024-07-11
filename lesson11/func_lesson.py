@@ -22,3 +22,6 @@ def cal_tri(width=100, height=100):
 
 result = cal_tri(width=10, height=5)
 print(result)
+
+result = cal_tri()
+print(result)
