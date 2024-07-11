@@ -28,3 +28,10 @@ for last_name, first_name in zip(last_names, first_names):
 
 for i, last_name in enumerate(last_names):
     print(f"Number{i} {last_name} san")
+
+
+for i in range(10):
+    if i == 7:
+        print(i)
+        break
+    print(i)
