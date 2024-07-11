@@ -27,4 +27,4 @@ for last_name, first_name in zip(last_names, first_names):
     print(last_name, first_name + " san")
 
 for i, last_name in enumerate(last_names):
-    print("Number{} {} san", i, last_name)
+    print(f"Number{i} {last_name} san")
