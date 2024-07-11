@@ -1,9 +1,9 @@
 def say_hello():
     print("Hello")
 
-say_hello()
-say_hello()
-say_hello()
+# say_hello()
+# say_hello()
+# say_hello()
 
 def say_hello2(name):
     print(f"Hello {name}-san")
@@ -11,8 +11,8 @@ def say_hello2(name):
 say_hello2(name="bob")
 
 def cal_square(width):
-    print(width * width)
+    # print(width * width)
     return width * width
 
-result = cal_square(10)
+result = cal_square(width=10)
 print(result)
