@@ -5,6 +5,9 @@ class Person:
         self.nationality = nationality
         self.age = age
     
+    def __call__(self, name):
+        print(f"Hello {name}, everyone. I am {self.name}")
+
     def say_hello(self, name):
         print(f"Hello {name}, everyone. I am {self.name}")
 
