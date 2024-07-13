@@ -1,4 +1,5 @@
 import datetime
 
-print(datetime.date.today())
+today = datetime.date.today()
+print(today.year, today.month, today.day)
 print(datetime.datetime.now())
