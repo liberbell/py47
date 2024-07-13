@@ -10,8 +10,8 @@ class Person:
 
 bob = Person(name="bob", nationality="Jamaica", age=67)
 print(bob.age, bob.nationality, bob.name)
-bob.say_hello()
+bob.say_hello("hepp")
 
 eric = Person(name="eric", nationality="British", age=75)
 print(eric.age, eric.nationality, eric.name)
-eric.say_hello()
+eric.say_hello("hepp")
