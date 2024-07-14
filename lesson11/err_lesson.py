@@ -11,4 +11,7 @@ int("0")
 # int("zero")
 
 names = ["bob", "eric", "alex"]
-names[3]
+# names[3]
+
+scores = {"Language": 60, "Science": 90, "Mathmatics": 80}
+scores["Music"]
