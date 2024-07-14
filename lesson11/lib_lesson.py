@@ -13,3 +13,4 @@ print(df)
 
 df = pd.read_csv("california_housing_test.csv")
 print(df.iloc[: , :3])
+print(df[df["housing_median_age"] > 30])
