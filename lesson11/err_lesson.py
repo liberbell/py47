@@ -3,4 +3,8 @@ def say_hello():
 
 bob = 100
 a = (1, 2, 3)
-a.append(4)
+# a.append(4)
+
+100 + "100"
+int("0")
+int("zero")
