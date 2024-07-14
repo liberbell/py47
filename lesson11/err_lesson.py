@@ -14,4 +14,7 @@ names = ["bob", "eric", "alex"]
 # names[3]
 
 scores = {"Language": 60, "Science": 90, "Mathmatics": 80}
-scores["Music"]
+# scores["Music"]
+
+# import bob
+file = open("sample.txt")
