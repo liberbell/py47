@@ -17,4 +17,4 @@ scores = {"Language": 60, "Science": 90, "Mathmatics": 80}
 # scores["Music"]
 
 # import bob
-file = open("sample.txt")
+# file = open("sample.txt")
